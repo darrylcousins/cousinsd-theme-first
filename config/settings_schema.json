@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Debut",
-    "theme_author": "Shopify",
-    "theme_version": "16.5.6",
-    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
-    "theme_support_url": "https:\/\/support.shopify.com\/"
+    "theme_name": "Cousinsd",
+    "theme_author": "Darryl Cousins",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https:\/\/github.com\/darrylcousins\/cousinsd-theme-first",
+    "theme_support_url": "https:\/\/github.com\/darrylcousins\/cousinsd-theme-first"
   },
   {
     "name": {

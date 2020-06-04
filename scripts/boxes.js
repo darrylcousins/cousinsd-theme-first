@@ -4,4 +4,4 @@ import { Boxes } from "./Components/Boxes"
 
 const rootEl = document.getElementById("react-boxes")
 
-rootEl && ReactDOM.render(, rootEl)
+rootEl && ReactDOM.render(Boxes, rootEl)

@@ -1,3 +1,3 @@
-import React from 'react-js';
+import React from 'react';
 
-export const Boxes () => ()
+export const Boxes = () => 'boxes'
