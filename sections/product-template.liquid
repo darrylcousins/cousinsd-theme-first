@@ -203,7 +203,13 @@
                 {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
                 {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
               >
-                <button type="submit" name="add"
+              
+                {% include 'react-boxes' %}
+                {% comment %}
+                First try on react
+                {% endcomment %}
+
+                <button type="submit" name="add" disabled
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
                   class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"

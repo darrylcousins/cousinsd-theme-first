@@ -7,9 +7,12 @@
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
 
+  {% comment %}
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
+  {% endcomment %}
+  <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}" type="image/ico">
 
   {%- capture seo_title -%}
     {%- if request.page_type == 'search' and search.performed == true -%}
@@ -105,6 +108,15 @@
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
 
   {{ content_for_header }}
+  {% comment %}
+  First try at react in shopify theme - see react-boxes in header.liquid
+  <script defer type="module" src="https://b75aca9bdbd8.ngrok.io/boxes.bundle.js?shop=cousinsd-app-test.myshopify.com"></script>
+  {% endcomment %}
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@shopify/polaris@4.24.0/styles.min.css"
+  />
+  <script defer type="module" src="{{ "boxes.bundle.js" | asset_url }}"></script>
 </head>
 
 <body class="template-{{ request.page_type | handle }}">

@@ -1,9 +1,3 @@
-{% comment %}
-First try at react in shopify theme - see react-boxes in this file
-{% endcomment %}
-<script defer type="module" src="{{ "box.bundle.js" | asset_url }}"></script>
-
-
 {% if section.settings.message %}
   <style>
     {% if section.settings.logo != blank %}
@@ -141,11 +135,7 @@ First try at react in shopify theme - see react-boxes in this file
           {% endif %}
 
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
-            {% include 'react-boxes' %}
-            {% comment %}
-            First try on react
             {% include 'icon-cart' %}
-            {% endcomment %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
             <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
               <span data-cart-count>{{ cart.item_count }}</span>
