@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(40, 40, 40, .7);
   border-radius: 3px;
   cursor: pointer;
   visibility: hidden;
@@ -24,12 +24,11 @@
 
 .modal-dialog {
   position: relative;
-  width: 80%;
-  min-height: 60%;
+  width: 100%;
+  min-height: 100%;
   max-width: 800px;
   max-height: 80vh;
   border-radius: 5px;
-  background: rgba(255, 255, 255, .9);
   overflow: auto;
   cursor: default;
 }
@@ -38,8 +37,8 @@
   padding: 1rem;
 }
 
-.modal-content {
-  margin: 10% 10%;
+.modal-text {
+  color: white;
 }
 
 .modal .close-modal {
@@ -48,6 +47,8 @@
   right: 0;
   font-size: 1.5rem;
   border: 0;
+  background: transparent;
+  color: white;
 }
 
 .modal p + p {

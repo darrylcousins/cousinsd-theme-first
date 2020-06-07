@@ -11,7 +11,6 @@ import { Query } from 'react-apollo';
 import Client from '../../graphql/client'
 import { SHOP_ID } from '../../config';
 import { LoadingTextMarkup } from '../common/LoadingTextMarkup';
-import { Modal } from '../common/Modal';
 import { DateSelect } from './DateSelect';
 import { Box } from './Box';
 import {
@@ -109,7 +108,7 @@ export const App = () => {
                   margin: '1rem 0',
                   width: '100%'
                 }}>
-                  <LoadingTextMarkup lines={2} />
+                  <LoadingTextMarkup lines={4} />
                 </div>
               );
             };
@@ -130,10 +129,9 @@ export const App = () => {
                 height: '100%',
                 position: 'relative',
               }}>
-                { delivered && <Modal /> }
                 { !delivered && (
                   <div style={{ marginBottom: '1rem' }}>
-                    <Banner status='info'>Please choose a date for delivery</Banner> 
+                    <Banner status='warning'>Please choose a date for delivery</Banner> 
                   </div>
                 )}
                 <DateSelect boxes={data.getBoxesByShopifyId} onSelect={handleSelect} />

@@ -1,10 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import {
-  Icon,
-} from '@shopify/polaris';
-import {
-    QuestionMarkMinor
-} from '@shopify/polaris-icons';
 import { Query } from 'react-apollo';
 import { Products } from './Products';
 
@@ -18,12 +12,7 @@ export const BoxListing = ({ productList, addOnProductList }) => {
   };
 
   return (
-    <div style={{
-      margin: '1rem 0',
-      display: 'flex',
-      width: '100%',
-      position: 'relative',
-    }}>
+    <React.Fragment>
       <Products
         products={products}
         isAddOn={false}
@@ -34,14 +23,7 @@ export const BoxListing = ({ productList, addOnProductList }) => {
         isAddOn={true}
         onClick={moveProduct}
       />
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-      }}>
-        <Icon source={QuestionMarkMinor} color='blueDark' />
-      </div>
-    </div>
+    </React.Fragment>
   );
 }
 
