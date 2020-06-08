@@ -5,21 +5,33 @@ import { Product } from './Product';
 
 export const Products = ({ products, addOnList }) => {
 
-  const Wrapper = styled.div` 
+  const ProductList = styled.div` 
       display: flex;
       flex-direction: column;
       width: 100%;
-      text-align: ${addOnList ? 'right' : 'left'}
+      min-height: 100px;
+      text-align: ${props => (props.addOnList ? 'right' : 'left')};
+      margin-right: ${props => (props.addOnList ? '0' : '2em')};
+      margin-left: ${props => (props.addOnList ? '2em' : '0')};
+      transition: border-color 0.2s ease;
+      border-width: 2px;
+      border-style: dashed;
+      border-radius: 2px;
+      border-color: ${props => (props.isDraggingOver ? 'silver' : 'transparent')};
     `;
 
   const id = addOnList ? 'addons' : 'products';
 
+  console.log(id, products);
+
   return (
     <Droppable droppableId={id}>
-      {(provided) => (
-        <Wrapper
+      {(provided, snapshot) => (
+        <ProductList
           ref={provided.innerRef}
           {...provided.droppableProps} 
+          isDraggingOver={snapshot.isDraggingOver}
+          addOnList={addOnList}
         >
           { products.map((product, index) => (
             <Product
@@ -29,7 +41,7 @@ export const Products = ({ products, addOnList }) => {
             />
           )) }
           {provided.placeholder}
-        </Wrapper>
+        </ProductList>
       )}
     </Droppable>
   );

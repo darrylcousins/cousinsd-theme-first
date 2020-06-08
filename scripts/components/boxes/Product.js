@@ -15,35 +15,40 @@ export const Product = ({ index, product }) => {
   const Wrapper = styled.div` 
     margin-bottom: 0.25em;
     cursor: pointer;
+    text-transform: initial;
+    letter-spacing: initial;
+    text-align: right;
+    cursor: grab;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.8rem;
+    background-color: ${props => (props.isAddOn ? '#dfe3e8' : 'palegreen')};
+    border: 0.2rem solid white;
+    border-color: ${props => (props.isDragging ? 'darkslategray' : 'white')};
+    transition: border-color 0.2s ease;
+    border-radius: 2rem;
+    line-height: 2rem;
+    color: ${props => (props.isAddOn ? '#454f5b' : '#414f3e')};
+    font-weight: 400;
   `;
 
-  if (product.id == '16' || product.id == '4') {
-    console.log(product.title, product.isAddOn);
-  }
+  const price = product.isAddOn ? numberFormat(product.shopify_price) : '';
 
   return (
     <Draggable
       draggableId={product.id}
       index={index}
     >
-      {(provided) => (
+      {(provided, snapshot) => (
         <Wrapper
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          isDragging={snapshot.isDragging}
+          isAddOn={product.isAddOn}
         >
-        <div>
-          { product.isAddOn && (
-            <Badge progress='incomplete'>
-              {product.id} {product.title} {numberFormat(product.shopify_price)}
-            </Badge>
-          )}
-          { !product.isAddOn && (
-            <Badge progress='complete' status='success'>
-              {product.id} {product.title}
-            </Badge>
-          )}
-      </div>
+              {product.id} {product.title} {price}
         </Wrapper>
       )}
     </Draggable>

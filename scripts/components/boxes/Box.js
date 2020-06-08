@@ -26,7 +26,7 @@ export const Box = ({ id }) => {
       <Query
         query={GET_BOX}
         variables={{ input }}
-        fetchPolicy='no-cache'
+        fetchPolicy='cache'
       >
         {({ loading, error, data, refetch }) => {
           if (loading) { 
@@ -49,30 +49,31 @@ export const Box = ({ id }) => {
           console.log('addons', addOnProducts);
 
           return (
-            <div style={{
-              margin: '1rem 0',
-              display: 'flex',
-              width: '100%',
-              position: 'relative',
-            }}>
-              <Modal
-                onClose={toggleModalOpen}
-                visible={modalOpen}
-                content="My help text"/>
-              <BoxListing productList={products} addOnProductList={addOnProducts} />
+            <React.Fragment>
               <div style={{
-                position: 'absolute',
-                bottom: 0,
-                right: 0,
+                margin: '1rem 0',
+                display: 'flex',
+                width: '100%',
+                position: 'relative',
               }}>
-                <Button
-                  plain={true}
-                  onClick={toggleModalOpen}
-                >
-                  <Icon source={QuestionMarkMinor} color='orange' />
-                </Button>
+                <Modal
+                  onClose={toggleModalOpen}
+                  visible={modalOpen}
+                  content="My help text"/>
+                <BoxListing productList={products} addOnProductList={addOnProducts} />
               </div>
-            </div>
+              <div style={{
+                position: 'relative',
+                textAlign: 'right',
+              }}>
+                  <Button
+                    plain={true}
+                    onClick={toggleModalOpen}
+                  >
+                    <Icon source={QuestionMarkMinor} color='orange' />
+                  </Button>
+              </div>
+            </React.Fragment>
           )
         }}
       </Query>

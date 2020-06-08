@@ -7,10 +7,25 @@ import { SHOP, SHOP_ID } from '../../config';
 
 export const BoxListing = ({ productList, addOnProductList }) => {
 
-  const [products, setProducts] = useState([]);
-  const [addOnProducts, setAddOnProducts] = useState([]);
+  addOnProductList.forEach((el, idx) => {
+    addOnProductList[idx].isAddOn = true;
+  });
+
+  productList.forEach((el, idx) => {
+    productList[idx].isAddOn = false;
+  });
+
+  const [allProducts, setAllProducts] = useState({
+    'products': productList,
+    'addons': addOnProductList,
+  });
+  console.log(allProducts);
+
+  const [products, setProducts] = useState(productList);
+  const [addOnProducts, setAddOnProducts] = useState(addOnProductList);
   const [loaded, setLoaded] = useState(false);
 
+  /*
   useEffect(() => {
     addOnProductList.forEach((el, idx) => {
       addOnProductList[idx].isAddOn = true;
@@ -22,6 +37,7 @@ export const BoxListing = ({ productList, addOnProductList }) => {
     });
     setProducts(productList);
   }, [products, addOnProducts])
+    */
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -79,14 +95,22 @@ export const BoxListing = ({ productList, addOnProductList }) => {
 
     var product = products.concat(addOnProducts).find(el =>  el.id === draggableId);
 
-    console.log(product.id, product.isAddOn, product.title);
     var tempProds;
 
-    if (destination.droppableId == 'products' && product.isAddOn) {
+    const calcDest = (destination, source) => {
+      if (destination === 'products' && source === 'addons') return 'Products';
+      if (destination === 'addons' && source === 'products') return 'AddOns';
+      return false;
+    };
+
+    const dest = calcDest(destination.droppableId, source.droppableId);
+    console.log(dest, product.id, product.isAddOn, product.title);
+
+    if (dest === 'Products' && product.isAddOn) {
       tempProds = products
         .filter(el => el.id !== product.id);
       tempProds.push(product);
-      setProducts(tempProds);
+      setProducts(tempProds.sort(nameSort));
 
       setAddOnProducts(
         addOnProductList
@@ -97,22 +121,22 @@ export const BoxListing = ({ productList, addOnProductList }) => {
         parseFloat(priceElement.innerHTML.slice(1)) + parseFloat(product.shopify_price)
       );
     }
-    if (destination.droppableId == 'products' && !product.isAddOn) {
+    if (dest === 'Products' && !product.isAddOn) {
       tempProds = products
         .filter(el => el.id !== product.id);
       tempProds.push(product);
-      setProducts(tempProds);
+      setProducts(tempProds.sort(nameSort));
 
       setAddOnProducts(
         addOnProductList
           .filter(el => el.id !== product.id)
       );
     }
-    if (destination.droppableId == 'addons' && product.isAddOn) {
+    if (dest === 'AddOns' && product.isAddOn) {
       tempProds = addOnProducts
         .filter(el => el.id !== product.id);
       tempProds.push(product);
-      setAddOnProducts(tempProds);
+      setAddOnProducts(tempProds.sort(nameSort));
 
       setProducts(
         productList
@@ -123,11 +147,11 @@ export const BoxListing = ({ productList, addOnProductList }) => {
         parseFloat(priceElement.innerHTML.slice(1)) - parseFloat(product.shopify_price)
       );
     }
-    if (destination.droppableId == 'addons' && !product.isAddOn) {
+    if (dest === 'AddOns' && !product.isAddOn) {
       tempProds = addOnProducts
         .filter(el => el.id !== product.id);
       tempProds.push(product);
-      setAddOnProducts(tempProds);
+      setAddOnProducts(tempProds.sort(nameSort));
 
       setProducts(
         productList
@@ -135,9 +159,6 @@ export const BoxListing = ({ productList, addOnProductList }) => {
       );
     }
   };
-
-  console.log('products', products);
-  console.log('add on products', addOnProducts);
 
   return (
     <DragDropContext
