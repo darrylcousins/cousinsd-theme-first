@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   Button,
   Popover,
@@ -34,7 +34,14 @@ export const DateSelect = ({ boxes, onSelect }) => {
     onSelect({ delivered, id });
   };
 
-  console.log(boxes);
+  useEffect(() => {
+    if (boxes.length == 1) {
+      handleDateSelect({
+        delivered: boxes[0].delivered,
+        id: boxes[0].id,
+      });
+    };
+  }, [boxes]);
 
   return (
     <Popover

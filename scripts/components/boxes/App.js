@@ -2,85 +2,29 @@ import React, { useEffect, useState, useCallback } from 'react';
 import {
   AppProvider,
   Banner,
-  Button,
   Card,
   Frame,
+  Spinner,
 } from '@shopify/polaris';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { Query } from 'react-apollo';
 import Client from '../../graphql/client'
-import { SHOP_ID } from '../../config';
+import { SHOP, SHOP_ID } from '../../config';
 import { LoadingTextMarkup } from '../common/LoadingTextMarkup';
 import { DateSelect } from './DateSelect';
 import { Box } from './Box';
+import { Get } from '../common/Get';
 import {
   GET_BOXES,
 } from '../../graphql/queries';
 
 export const App = () => {
 
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  /* load current session cart (don't need to wait for this!)*/
-  useEffect(() => {
-    fetch(`/cart.js`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-  }, [])
-
-  /* end load current session cart */
-
-  async function postToCart(data) {
-    const response = await fetch('/cart/add.js',{
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }
-    );
-    console.log(response);
-  }
-
-  /* get the add form on page */
+  /* get some existing form elements */
   const form = document.querySelector('form[action="/cart/add"]');
   const button = document.querySelector('button[name="add"]');
-  const priceElement = document.querySelector('span[data-regular-price]');
 
-  console.log('price element', priceElement.innerHTML);
-  console.log('form action', form.action);
-  form.addEventListener('submit',(e) => {
-    if (!formSubmitted) {
-      setFormSubmitted(true);
-      var select = form.elements.id;
-      var option = select.options[select.selectedIndex]
-      console.log(option.value);
-      console.log(e); // already submitted?
-      postToCart({
-        items: [
-          {
-            quantity: 1,
-            id: 31683438706746
-          },
-          {
-            quantity: 1,
-            id: option.value,
-            properties: {
-              'Delivery Date': 'Wed 17 June 2020',
-            }
-          },
-        ]
-      }).then(data => console.log('returned', data));
-    };
-    e.preventDefault();
-  });
-
-
-  // button.removeAttribute('disabled');
+  // get the selected product id
   const shopify_id = form.getAttribute('id').split('_')[2];
   const input = {
     shopify_id: parseInt(shopify_id),
@@ -122,6 +66,8 @@ export const App = () => {
               button.removeAttribute('disabled');
             };
 
+            const boxes = data.getBoxesByShopifyId;
+
             return (
               <div style={{
                 paddingBottom: '1rem',
@@ -144,3 +90,15 @@ export const App = () => {
     </AppProvider>
   );
 }
+
+  /*
+  <Get
+    url={`${SHOP}/cart.js`}
+  >
+    {({ loading, error, response }) => {
+      if (loading) return <Spinner />
+      if (error) return <Banner status='critical'>{ JSON.stringify(error, null, 2) }></Banner>
+      if (response) return <pre>{JSON.stringify(response, null, 2)}</pre>
+    }}
+  </Get>
+  */

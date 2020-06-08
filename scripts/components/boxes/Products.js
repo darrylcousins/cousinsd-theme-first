@@ -1,40 +1,36 @@
 import React, { useState, useCallback } from 'react';
+import styled from 'styled-components';
+import { Droppable } from 'react-beautiful-dnd';
 import { Product } from './Product';
 
-export const Products = ({ products, isAddOn, onClick }) => {
+export const Products = ({ products, addOnList }) => {
 
-  let wrapperStyle, prodStyle;
-  if (isAddOn) {
-    wrapperStyle = { 
-      display: 'flex', 
-      flexDirection: 'column', 
-      width: '100%', 
-      textAlign: 'right'
-    }
-    prodStyle = { 
-      marginBottom: '0,25rem', 
-      float: 'right',
-    }
-  } else {
-    wrapperStyle = { 
-      display: 'flex', 
-      flexDirection: 'column', 
-      width: '100%', 
-    }
-    prodStyle = { 
-      marginBottom: '0,25rem', 
-    }
-  }
+  const Wrapper = styled.div` 
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      text-align: ${addOnList ? 'right' : 'left'}
+    `;
+
+  const id = addOnList ? 'addons' : 'products';
 
   return (
-    <div style={wrapperStyle}>
-      { products.map(product => (
-        <div
-          key={product.id} 
-          style={prodStyle}>
-          <Product isAddOn={isAddOn} product={product} onClick={onClick} />
-        </div>
-      )) }
-    </div>
+    <Droppable droppableId={id}>
+      {(provided) => (
+        <Wrapper
+          ref={provided.innerRef}
+          {...provided.droppableProps} 
+        >
+          { products.map((product, index) => (
+            <Product
+              product={product}
+              key={product.id} 
+              index={index}
+            />
+          )) }
+          {provided.placeholder}
+        </Wrapper>
+      )}
+    </Droppable>
   );
 }

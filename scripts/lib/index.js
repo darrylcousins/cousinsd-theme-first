@@ -7,7 +7,7 @@ export const nameSort = (a, b) => {
 }
 
 export const numberFormat = (amount, currencyCode='NZD') => {
-  let amt = parseInt(amount) * 0.01; // amount comes in at cent decimal value
+  let amt = parseFloat(amount);
   let locale = 'en-NZ';
   if (currencyCode == 'NZD') locale = 'en-NZ';
   return (

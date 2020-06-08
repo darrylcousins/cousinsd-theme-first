@@ -4,59 +4,48 @@ import {
   InlineError,
   Spinner,
 } from '@shopify/polaris';
+import styled from 'styled-components';
+import { Draggable } from 'react-beautiful-dnd';
+import { SHOP } from '../../config';
 import { numberFormat } from '../../lib';
+import { Get } from '../common/Get'
 
-export const Product = ({ product, isAddOn, onClick }) => {
+export const Product = ({ index, product }) => {
 
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState({});
+  const Wrapper = styled.div` 
+    margin-bottom: 0.25em;
+    cursor: pointer;
+  `;
 
-  useEffect(() => {
-    fetch(`/products/${product.shopify_handle}.js`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setData(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [])
-
-  if (error) return <InlineError message={error.message}/>;
-
-  if (!isLoaded) return <Spinner size='small' />;
-
-  if (Object.keys(data).length) { // should check map function
-    if (isAddOn) {
-      const price = numberFormat(data.variants[0].price);
-      return (
-        <div
-          onClick={() => onClick(product, isAddOn)}
-          style={{ cursor: 'pointer' }}
-        >
-          <Badge progress='incomplete'>
-            {product.title} {price}
-          </Badge>
-        </div>
-      );
-    } else {
-      return (
-        <div
-          onClick={() => onClick(product, isAddOn)}
-          style={{ cursor: 'pointer' }}
-        >
-          <Badge progress='complete' status='success'>
-            {product.title} &#x2716;
-          </Badge>
-        </div>
-      );
-    }
-  } else {
-    return null;
+  if (product.id == '16' || product.id == '4') {
+    console.log(product.title, product.isAddOn);
   }
+
+  return (
+    <Draggable
+      draggableId={product.id}
+      index={index}
+    >
+      {(provided) => (
+        <Wrapper
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+        <div>
+          { product.isAddOn && (
+            <Badge progress='incomplete'>
+              {product.id} {product.title} {numberFormat(product.shopify_price)}
+            </Badge>
+          )}
+          { !product.isAddOn && (
+            <Badge progress='complete' status='success'>
+              {product.id} {product.title}
+            </Badge>
+          )}
+      </div>
+        </Wrapper>
+      )}
+    </Draggable>
+  );
 }

@@ -45,6 +45,9 @@ export const Box = ({ id }) => {
           const addOnProducts = data.getBox.addOnProducts
             .filter(item => item.available);
 
+          console.log('products', products);
+          console.log('addons', addOnProducts);
+
           return (
             <div style={{
               margin: '1rem 0',
@@ -63,7 +66,7 @@ export const Box = ({ id }) => {
                 right: 0,
               }}>
                 <Button
-                  plain
+                  plain={true}
                   onClick={toggleModalOpen}
                 >
                   <Icon source={QuestionMarkMinor} color='orange' />

@@ -19,7 +19,7 @@ export const Modal = ({ visible, content, onClose }) => {
     e.preventDefault();
     setIsVisible(false);
     onClose();
-    return true;
+    return false;
   };
 
   return (
@@ -27,7 +27,6 @@ export const Modal = ({ visible, content, onClose }) => {
       <div className="modal-dialog">
         <section className="modal-content">
           <button
-            plain
             onClick={closeModal}
             className="close-modal"
             aria-label="close modal"

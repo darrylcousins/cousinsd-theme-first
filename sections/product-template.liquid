@@ -204,10 +204,11 @@
                 {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
               >
               
-                {% include 'react-boxes' %}
-                {% comment %}
-                First try on react
-                {% endcomment %}
+{% comment %}
+Root element for react boxes
+{% endcomment %}
+<div id="react-boxes"></div>
+
 
                 <button type="submit" name="add" disabled
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
