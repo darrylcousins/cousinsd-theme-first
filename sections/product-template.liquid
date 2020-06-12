@@ -210,7 +210,7 @@ Root element for react boxes
 <div id="react-boxes"></div>
 
 
-                <button type="submit" name="add" disabled
+                <button type="submit" name="add" disabled="disabled"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
                   class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
@@ -227,9 +227,11 @@ Root element for react boxes
                     {% include 'icon-spinner' %}
                   </span>
                 </button>
+                  {% comment %}
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
+                {% endcomment %}
               </div>
             </div>
           {% endform %}

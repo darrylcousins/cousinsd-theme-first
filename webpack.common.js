@@ -9,7 +9,18 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [
+                ["@babel/preset-env", {"targets": { "node": "current" }}],
+                '@babel/react',
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,

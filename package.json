@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/darrylcousins/cousinsd-theme-first/issues"
   },
+  "browserslist": [
+    "since 2017-06"
+  ],
   "homepage": "https://github.com/darrylcousins/cousinsd-theme-first#readme",
   "dependencies": {
     "@apollo/client": "^3.0.0-rc.2",

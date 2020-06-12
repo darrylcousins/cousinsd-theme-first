@@ -1,15 +1,20 @@
 .modal {
   position: absolute;
-  top: 2rem; /* app specific */
+  top: 75px; /* 2rem app specific */
   left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  /*
   right: 0;
-  bottom: -2rem;
+  bottom: 0;
+  */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   background: rgba(40, 40, 40, .7);
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   visibility: hidden;
   opacity: 0;
@@ -37,10 +42,6 @@
   padding: 1rem;
 }
 
-.modal-text {
-  color: white;
-}
-
 .modal .close-modal {
   position: absolute;
   top:0;
@@ -51,6 +52,11 @@
   color: white;
 }
 
+.modal-text > p > strong {
+  color: white;
+}
+
 .modal p + p {
   margin-top: 1rem;
+  color: white;
 }

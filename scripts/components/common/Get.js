@@ -20,5 +20,8 @@ export const Get = ({ url, children }) => {
       )
   }, [])
 
-  return children({ response, error, loading });
+  if (typeof children == 'function') {
+    return children({ response, error, loading });
+  };
+  return { response, error, loading };
 };

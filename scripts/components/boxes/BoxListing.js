@@ -2,10 +2,11 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { Query } from 'react-apollo';
 import { nameSort, numberFormat } from '../../lib';
+import { Get } from '../common/Get'
 import { Products } from './Products';
 import { SHOP, SHOP_ID } from '../../config';
 
-export const BoxListing = ({ productList, addOnProductList }) => {
+export const BoxListing = ({ title, delivered, productList, addOnProductList }) => {
 
   addOnProductList.forEach((el, idx) => {
     addOnProductList[idx].isAddOn = true;
@@ -19,25 +20,9 @@ export const BoxListing = ({ productList, addOnProductList }) => {
     'products': productList,
     'addons': addOnProductList,
   });
-  console.log(allProducts);
 
-  const [products, setProducts] = useState(productList);
-  const [addOnProducts, setAddOnProducts] = useState(addOnProductList);
   const [loaded, setLoaded] = useState(false);
-
-  /*
-  useEffect(() => {
-    addOnProductList.forEach((el, idx) => {
-      addOnProductList[idx].isAddOn = true;
-    });
-    setAddOnProducts(addOnProductList);
-
-    productList.forEach((el, idx) => {
-      productList[idx].isAddOn = false;
-    });
-    setProducts(productList);
-  }, [products, addOnProducts])
-    */
+  const [productCount, setproductCount] = useState(productList.length);
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -48,131 +33,124 @@ export const BoxListing = ({ productList, addOnProductList }) => {
         body: JSON.stringify(data)
       }
     );
-    console.log(response);
+    return response;
   }
 
-  /* get the add form on page */
+  /* listen for submit and send data to cart */
   const form = document.querySelector('form[action="/cart/add"]');
   const button = document.querySelector('button[name="add"]');
   const priceElement = document.querySelector('span[data-regular-price]');
+  const buttonLoader = button.querySelector('span[data-loader]');
+  const cartIcon = document.querySelector('div[data-cart-count-bubble');
+  const cartCount = cartIcon.querySelector('span[data-cart-count]');
 
-  /* listen for submit and send data to cart */
-  form.addEventListener('submit',(e) => {
-    if (!formSubmitted) {
-      setFormSubmitted(false);
+  useEffect(() => {
+    const submitHandler = (e) => {
       var select = form.elements.id;
       var option = select.options[select.selectedIndex]
-      e.preventDefault();
+      // remove last comma and space
+      const deliveryDate = new Date(parseInt(delivered)).toDateString();
+      const products = Array.from(allProducts['products']);
       var productString = '';
       products.map(prod => productString += `${prod.title}, `);
-      // remove last comma and space
       if (productString.length) productString = productString.trim().slice(0, -1);
-      postToCart({
-        items: [
-          {
+      const addOns = products.filter(el => el.isAddOn);
+      const addOnString = addOns.map(el => el.title).join(', ');
+      const items = [];
+      addOns.forEach((el) => {
+        items.push({
             quantity: 1,
-            id: 4483550675002
-          },
-          {
-            quantity: 1,
-            id: option.value,
+            id: el.variant_id.toString(),
             properties: {
-              'Delivery Date': 'Wed 17 June 2020',
-              'Items': productString,
-              'Add on item': 'Agria Potatoes',
+              'Add on product to': `${title} delivered on ${deliveryDate}`
             }
-          },
-        ]
-      }).then(data => console.log('returned', data));
+          });
+      });
+      items.push({
+        quantity: 1,
+        id: option.value,
+        properties: {
+          'Delivery Date': 'Wed 17 June 2020',
+          'Items': productString,
+          'Add on items': addOnString,
+        }
+      });
+      cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;
+      const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
+      cartCount.innerHTML = count + items.length;
+      cartIcon.classList.remove('hide');
+      postToCart({ items }).then(data => console.log(data));
+      e.preventDefault();
+      e.stopPropagation();
+      return true;
     };
-  });
+    form.addEventListener('submit', submitHandler);
+    return () => {
+      form.removeEventListener('submit', submitHandler);
+    };
+  }, [allProducts]);
+
+  const onDragStart = (start) => {
+  };
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
 
     if (!destination) return;
-    if (destination.droppableId == source.droppableId) return;
 
-    var product = products.concat(addOnProducts).find(el =>  el.id === draggableId);
+    const startId = source.droppableId;
+    const endId = destination.droppableId;
 
-    var tempProds;
+    if (startId == endId) return;
 
-    const calcDest = (destination, source) => {
-      if (destination === 'products' && source === 'addons') return 'Products';
-      if (destination === 'addons' && source === 'products') return 'AddOns';
-      return false;
-    };
+    var product = allProducts[startId]
+      .concat(allProducts[endId])
+      .find(el =>  el.id === draggableId);
 
-    const dest = calcDest(destination.droppableId, source.droppableId);
-    console.log(dest, product.id, product.isAddOn, product.title);
+    var start = Array.from(allProducts[startId]);
+    var end = Array.from(allProducts[endId]);
 
-    if (dest === 'Products' && product.isAddOn) {
-      tempProds = products
-        .filter(el => el.id !== product.id);
-      tempProds.push(product);
-      setProducts(tempProds.sort(nameSort));
+    // remove from start
+    start = start.filter(el => el.id !== product.id);
 
-      setAddOnProducts(
-        addOnProductList
-          .filter(el => el.id !== product.id)
-      );
+    // push to end
+    end.push(product);
+    end.sort(nameSort);
 
-      priceElement.innerHTML = numberFormat(
-        parseFloat(priceElement.innerHTML.slice(1)) + parseFloat(product.shopify_price)
-      );
+    const newAll = {};
+    newAll[startId] = start;
+    newAll[endId] = end;
+
+    if (product.isAddOn) {
+      const origPrice = parseFloat(priceElement.innerHTML.trim().slice(1));
+      const diff = parseFloat(product.price) * 0.01;
+      if (endId == 'products') {
+        priceElement.innerHTML = numberFormat(origPrice + diff);
+      } else if (endId == 'addons') {
+        priceElement.innerHTML = numberFormat(origPrice - diff);
+      }
     }
-    if (dest === 'Products' && !product.isAddOn) {
-      tempProds = products
-        .filter(el => el.id !== product.id);
-      tempProds.push(product);
-      setProducts(tempProds.sort(nameSort));
 
-      setAddOnProducts(
-        addOnProductList
-          .filter(el => el.id !== product.id)
-      );
-    }
-    if (dest === 'AddOns' && product.isAddOn) {
-      tempProds = addOnProducts
-        .filter(el => el.id !== product.id);
-      tempProds.push(product);
-      setAddOnProducts(tempProds.sort(nameSort));
-
-      setProducts(
-        productList
-          .filter(el => el.id !== product.id)
-      );
-
-      priceElement.innerHTML = numberFormat(
-        parseFloat(priceElement.innerHTML.slice(1)) - parseFloat(product.shopify_price)
-      );
-    }
-    if (dest === 'AddOns' && !product.isAddOn) {
-      tempProds = addOnProducts
-        .filter(el => el.id !== product.id);
-      tempProds.push(product);
-      setAddOnProducts(tempProds.sort(nameSort));
-
-      setProducts(
-        productList
-          .filter(el => el.id !== product.id)
-      );
-    }
+    setAllProducts(newAll);
   };
+
+  const isProductDragDisabled = allProducts['products']
+    .filter(el => !el.isAddOn).length < productCount;
 
   return (
     <DragDropContext
       onDragEnd={onDragEnd}
     >
       <Products
-        products={products}
-        addOnList={false}
+        products={allProducts['products']}
+        id={'products'}
+        isProductDragDisabled={isProductDragDisabled}
       />
       <Products
-        products={addOnProducts}
-        addOnList={true}
+        products={allProducts['addons']}
+        id={'addons'}
+        isProductDragDisabled={false}
       />
     </DragDropContext>
   );
 }
-

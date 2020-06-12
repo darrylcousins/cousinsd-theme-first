@@ -27,11 +27,10 @@ export const DateSelect = ({ boxes, onSelect }) => {
   );
   /* end action select stuff */
 
-  const handleDateSelect = ({ delivered, id }) => {
-    console.log('selected', new Date(parseInt(delivered)).toDateString());
+  const handleDateSelect = ({ title, delivered, id }) => {
     setDeliveryDate(delivered);
     setSelectActive(false);
-    onSelect({ delivered, id });
+    onSelect({ title, delivered, id });
   };
 
   useEffect(() => {
@@ -39,6 +38,7 @@ export const DateSelect = ({ boxes, onSelect }) => {
       handleDateSelect({
         delivered: boxes[0].delivered,
         id: boxes[0].id,
+        title: boxes[0].shopify_title,
       });
     };
   }, [boxes]);
@@ -55,7 +55,7 @@ export const DateSelect = ({ boxes, onSelect }) => {
           boxes.map(item => (
             {
               content: new Date(parseInt(item.delivered)).toDateString(),
-              onAction: () => handleDateSelect({ delivered: item.delivered, id: item.id }),
+              onAction: () => handleDateSelect({ title: item.shopify_title, delivered: item.delivered, id: item.id }),
             }
           ))
         }

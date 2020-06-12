@@ -5,22 +5,16 @@ import {
   Icon,
   Frame,
 } from '@shopify/polaris';
-import {
-    QuestionMarkMinor
-} from '@shopify/polaris-icons';
 import { Query } from 'react-apollo';
 import { LoadingTextMarkup } from '../common/LoadingTextMarkup';
-import { Modal } from '../common/Modal';
 import { BoxListing } from './BoxListing';
 import {
   GET_BOX,
 } from '../../graphql/queries';
 
-export const Box = ({ id }) => {
+export const Box = ({ id, title, delivered }) => {
 
   const input = { id };
-  const [modalOpen, setModalOpen] = useState(false);
-  const toggleModalOpen = useCallback(() => setModalOpen(!modalOpen), [modalOpen]);
 
   return (
       <Query
@@ -45,9 +39,6 @@ export const Box = ({ id }) => {
           const addOnProducts = data.getBox.addOnProducts
             .filter(item => item.available);
 
-          console.log('products', products);
-          console.log('addons', addOnProducts);
-
           return (
             <React.Fragment>
               <div style={{
@@ -56,22 +47,12 @@ export const Box = ({ id }) => {
                 width: '100%',
                 position: 'relative',
               }}>
-                <Modal
-                  onClose={toggleModalOpen}
-                  visible={modalOpen}
-                  content="My help text"/>
-                <BoxListing productList={products} addOnProductList={addOnProducts} />
-              </div>
-              <div style={{
-                position: 'relative',
-                textAlign: 'right',
-              }}>
-                  <Button
-                    plain={true}
-                    onClick={toggleModalOpen}
-                  >
-                    <Icon source={QuestionMarkMinor} color='orange' />
-                  </Button>
+                <BoxListing
+                  title={title}
+                  delivered={delivered}
+                  productList={products}
+                  addOnProductList={addOnProducts}
+                />
               </div>
             </React.Fragment>
           )

@@ -11,10 +11,17 @@
   </head>
   <body>
     <div class="wrapper">
+      <div id="ClassCount" class="hide" data-cart-count-bubble>
+        <span data-cart-count>  5
+        </span>
+      </div>
       <span class="price-item" data-regular-price="">$60.00</span>
       <form method="post" action="/cart/add" id="product_form_4483554050106">
+        <select name="id" style="display: none">
+          <option value="22222222222222222" selected="selected">Default title</option>
+        </select>
         <div id="react-boxes"></div>
-        <button type="submit" name="add" aria-label="Add to cart" class="btn" aria-haspopup="dialog" data-add-to-cart="">
+        <button type="submit" disabled="disabled" name="add" aria-label="Add to cart" class="btn" aria-haspopup="dialog" data-add-to-cart="">
           <span data-add-to-cart-text="">Add to cart </span>
           <span class="hide" data-loader="">
             <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-spinner" viewBox="0 0 20 20">

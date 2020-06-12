@@ -34,7 +34,7 @@ export const Modal = ({ visible, content, onClose }) => {
           >
           ✕  
           </button>
-          <p className="modal-text">{ content }</p>
+          <div className="modal-text">{ content }</div>
         </section>
       </div>
     </div>
