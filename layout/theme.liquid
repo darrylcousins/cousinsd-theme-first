@@ -108,14 +108,14 @@
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
 
   {{ content_for_header }}
-  {% comment %}
-  First try at react in shopify theme - see react-boxes in header.liquid
-  <script defer type="module" src="https://b75aca9bdbd8.ngrok.io/boxes.bundle.js?shop=cousinsd-app-test.myshopify.com"></script>
-  {% endcomment %}
+  {% comment %}Polaris style theme used for components in boxes.bundle.js{% endcomment %}
   <link
     rel="stylesheet"
     href="https://unpkg.com/@shopify/polaris@4.24.0/styles.min.css"
   />
+  {% comment %}
+  First try at react in shopify theme - see react-boxes in sections/product-template.liquid
+  {% endcomment %}
   <script defer type="module" src="{{ "boxes.bundle.js" | asset_url }}"></script>
 </head>
 

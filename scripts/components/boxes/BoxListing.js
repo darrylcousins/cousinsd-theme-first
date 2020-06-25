@@ -50,12 +50,23 @@ export const BoxListing = ({ title, delivered, productList, addOnProductList }) 
       var option = select.options[select.selectedIndex]
       // remove last comma and space
       const deliveryDate = new Date(parseInt(delivered)).toDateString();
+
+
+      /*
       const products = Array.from(allProducts['products']);
       var productString = '';
       products.map(prod => productString += `${prod.title}, `);
       if (productString.length) productString = productString.trim().slice(0, -1);
-      const addOns = products.filter(el => el.isAddOn);
+      */
+      const products = allProducts['products'].filter(el => !el.isAddOn);
+      const productString = products.map(el => el.title).join(', ');
+
+      const addOns = allProducts['products'].filter(el => el.isAddOn);
       const addOnString = addOns.map(el => el.title).join(', ');
+
+      const removed = allProducts['addons'].filter(el => !el.isAddOn);
+      const removedString = removed.map(el => el.title).join(', ');
+
       const items = [];
       addOns.forEach((el) => {
         items.push({
@@ -70,9 +81,10 @@ export const BoxListing = ({ title, delivered, productList, addOnProductList }) 
         quantity: 1,
         id: option.value,
         properties: {
-          'Delivery Date': 'Wed 17 June 2020',
-          'Items': productString,
+          'Delivery Date': `${deliveryDate}`,
+          'Including': productString,
           'Add on items': addOnString,
+          'Removed items': removedString,
         }
       });
       cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;

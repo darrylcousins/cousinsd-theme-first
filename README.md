@@ -31,3 +31,8 @@ And in another:
 
 This starts a `webpack-dev-server` on `http://localhost:8080` allowing for a
 degree of local app development. This does not allow ajax calls to shopify.
+
+# Notes
+
+The file `boxes.bundle.js` is included in theme/layout.liquid.
+Check the correct graphql host is used for the app in scripts/config.js
