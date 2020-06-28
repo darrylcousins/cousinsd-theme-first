@@ -9,6 +9,13 @@ First crack at a shopify theme with react inclusion
   npm install
 ```
 
+# Push to live
+
+```bash
+  npm run build
+  theme publish
+```
+
 # Live development
 
 In one screen run:
