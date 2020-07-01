@@ -6,10 +6,10 @@ import {
 } from '@shopify/polaris';
 import { Query } from 'react-apollo';
 
-export const DateSelect = ({ boxes, onSelect }) => {
+export const DateSelect = ({ delivered, boxes, onSelect }) => {
 
   /* delivery date stuff */
-  const [deliveryDate, setDeliveryDate] = useState(null);
+  const [deliveryDate, setDeliveryDate] = useState(delivered);
   /* end delivery date stuff */
 
   /* action select stuff */
@@ -41,7 +41,7 @@ export const DateSelect = ({ boxes, onSelect }) => {
         title: boxes[0].shopify_title,
       });
     };
-  }, [boxes]);
+  }, []);
 
   return (
     <Popover

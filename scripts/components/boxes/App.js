@@ -52,13 +52,6 @@ export const App = () => {
   const toggleModalOpen = useCallback(() => setModalOpen(!modalOpen), [modalOpen]);
   /* modal stuff */
 
-  /* timer */
-  useEffect(() => {
-    const timer = setTimeout(() => console.log("Hello, World!"), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-  /* end timer */
-
   const showInitial = () => {
     setModalContent(HelpStart);
 
@@ -68,6 +61,30 @@ export const App = () => {
       
     }, 3000);
   };
+
+  const [options, setOptions] = useState({});
+
+  useEffect(() => {
+  fetch('/cart.js')
+    .then(async response => await response.json())
+    .then(data => {
+      console.log(data);
+      if (data.items) {
+        data.items.forEach((el, idx) => {
+          if (el.product_type == 'Veggie Box' && window.location.pathname.split('/').indexOf(el.handle)) {
+            console.log(JSON.stringify(el.properties));
+            const delivered = new Date(el.properties['Delivery Date']).getTime();
+            const including = el.properties['Including'].split(',').map(el => el.trim()).filter(el => el != '');
+            const addons = el.properties['Add on items'].split(',').map(el => el.trim()).filter(el => el != '');
+            const removed = el.properties['Removed items'].split(',').map(el => el.trim()).filter(el => el != '');
+            setOptions({delivered, including, addons, removed});
+            setDelivered(delivered);
+            console.log(delivered);
+          };
+        });
+      };
+    });
+  }, []);
 
   return (
     <AppProvider>
@@ -92,6 +109,8 @@ export const App = () => {
               <Banner status="critical">{error.message}</Banner>
             )};
 
+            const boxes = data.getBoxesByShopifyId;
+
             const handleSelect = ({ title, delivered, id }) => {
               setDelivered(delivered);
               setId(id);
@@ -100,7 +119,16 @@ export const App = () => {
               button.removeAttribute('disabled');
             };
 
-            const boxes = data.getBoxesByShopifyId;
+            //console.log(JSON.stringify(options, null, 2));
+            //console.log(JSON.stringify(data, null, 2));
+            if (delivered) {
+              boxes.forEach((item) => {
+                if (item.delivered == delivered) {
+                  setId(item.id);
+                  setTitle(item.title);
+                };
+              });
+            };
 
             return (
               <div style={{
@@ -114,8 +142,12 @@ export const App = () => {
                     <Banner status='warning'>Please choose a date for delivery</Banner> 
                   </div>
                 )}
-                <DateSelect boxes={data.getBoxesByShopifyId} onSelect={handleSelect} />
-                { delivered && id && <Box title={title} delivered={delivered} id={ id } /> }
+                <DateSelect delivered={delivered} boxes={data.getBoxesByShopifyId} onSelect={handleSelect} />
+                { delivered && id && <Box
+                  options={options}
+                  title={title}
+                  delivered={delivered}
+                  id={ id } /> }
                 <Modal
                   onClose={toggleModalOpen}
                   visible={modalOpen}

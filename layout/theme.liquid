@@ -8,6 +8,8 @@
   <link rel="canonical" href="{{ canonical_url }}">
 
   {% comment %}
+  {% endcomment %}
+  {% comment %}
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
@@ -117,6 +119,7 @@
   First try at react in shopify theme - see react-boxes in sections/product-template.liquid
   {% endcomment %}
   <script defer type="module" src="{{ "boxes.bundle.js" | asset_url }}"></script>
+  <script defer type="module" src="{{ "vendors.bundle.js" | asset_url }}"></script>
 </head>
 
 <body class="template-{{ request.page_type | handle }}">

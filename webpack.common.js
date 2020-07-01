@@ -1,6 +1,7 @@
 const path = require("path")
 
 module.exports = {
+  name: 'web',
   entry: {
     'boxes': "./scripts/boxes.js"
   },

@@ -6,20 +6,73 @@ import { Get } from '../common/Get'
 import { Products } from './Products';
 import { SHOP, SHOP_ID } from '../../config';
 
-export const BoxListing = ({ title, delivered, productList, addOnProductList }) => {
+export const BoxListing = ({ options, title, delivered, productList, addOnProductList }) => {
 
-  addOnProductList.forEach((el, idx) => {
-    addOnProductList[idx].isAddOn = true;
-  });
-
-  productList.forEach((el, idx) => {
-    productList[idx].isAddOn = false;
-  });
+  /* options are from existing cart or null values:
+  {delivered, including, addons, removed}
+  */
 
   const [allProducts, setAllProducts] = useState({
     'products': productList,
     'addons': addOnProductList,
   });
+  console.log(JSON.stringify(options.addons, null, 2));
+  console.log(JSON.stringify(options.including, null, 2));
+
+  useEffect(() => {
+    let addons = Array();
+    let products = Array();
+    addOnProductList.forEach((el, idx) => {
+      let pushed = false;
+      console.log(el.title);
+      if (options.addons) {
+        if (options.addons.indexOf(el.title) > -1) {
+          products.push(el);
+          pushed = true;
+        };
+      };
+      if (options.including) {
+        if (options.including.indexOf(el.title) > -1) {
+          products.push(el);
+          pushed = true;
+        };
+      };
+      if (!pushed) {
+        console.log('finally addons', el.title);
+        addons.push(el);
+      };
+    });
+    productList.forEach((el, idx) => {
+      let pushed = false;
+      if (options.addons) {
+        if (options.addons.indexOf(el.title) > -1) {
+          products.push(el);
+          pushed = true;
+        };
+      };
+      if (options.including) {
+        if (options.including.indexOf(el.title) > -1) {
+          products.push(el);
+          pushed = true;
+        };
+      };
+      if (options.removed) {
+        if (options.removed.indexOf(el.title) > -1) {
+          addons.push(el);
+          pushed = true;
+        };
+      };
+      if (!pushed) {
+        console.log('finally products', el.title);
+        products.push(el);
+      };
+    });
+    setAllProducts({
+      'products': products,
+      'addons': addons,
+    });
+  }, []);
+
 
   const [loaded, setLoaded] = useState(false);
   const [productCount, setproductCount] = useState(productList.length);
@@ -48,16 +101,9 @@ export const BoxListing = ({ title, delivered, productList, addOnProductList }) 
     const submitHandler = (e) => {
       var select = form.elements.id;
       var option = select.options[select.selectedIndex]
-      // remove last comma and space
+
       const deliveryDate = new Date(parseInt(delivered)).toDateString();
 
-
-      /*
-      const products = Array.from(allProducts['products']);
-      var productString = '';
-      products.map(prod => productString += `${prod.title}, `);
-      if (productString.length) productString = productString.trim().slice(0, -1);
-      */
       const products = allProducts['products'].filter(el => !el.isAddOn);
       const productString = products.map(el => el.title).join(', ');
 
@@ -100,7 +146,7 @@ export const BoxListing = ({ title, delivered, productList, addOnProductList }) 
     return () => {
       form.removeEventListener('submit', submitHandler);
     };
-  }, [allProducts]);
+  }, []);
 
   const onDragStart = (start) => {
   };

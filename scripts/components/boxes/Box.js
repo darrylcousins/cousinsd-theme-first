@@ -12,7 +12,7 @@ import {
   GET_BOX,
 } from '../../graphql/queries';
 
-export const Box = ({ id, title, delivered }) => {
+export const Box = ({ id, title, delivered, options }) => {
 
   const input = { id };
 
@@ -35,9 +35,17 @@ export const Box = ({ id, title, delivered }) => {
           )}
 
           const products = data.getBox.products
-            .filter(item => item.available);
+            .filter(item => item.available)
+            .map(item => {
+              item.isAddOn = false;
+              return item;
+            });
           const addOnProducts = data.getBox.addOnProducts
-            .filter(item => item.available);
+            .filter(item => item.available)
+            .map(item => {
+              item.isAddOn = true;
+              return item;
+            });
 
           return (
             <React.Fragment>
@@ -48,6 +56,7 @@ export const Box = ({ id, title, delivered }) => {
                 position: 'relative',
               }}>
                 <BoxListing
+                  options={options}
                   title={title}
                   delivered={delivered}
                   productList={products}

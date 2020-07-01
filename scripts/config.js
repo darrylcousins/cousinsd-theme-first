@@ -1,7 +1,7 @@
 //export const SHOP = 'http://cousinsd-app-test.myshopify.com';
 export const SHOP_ID = 1;
 //export const HOST = 'https://fast-spire-96062.herokuapp.com';
-export const HOST='https://5d3bec5fa448.ngrok.io';
+export const HOST='https://03b956fa3bc2.ngrok.io';
 
 var shop = 'https://cousinsd-app-test.myshopify.com';
 

@@ -13,7 +13,7 @@ export const Modal = ({ visible, content, onClose }) => {
   useEffect(() => {
     setIsVisible(visible);
     setText(content);
-  }, [visible, content])
+  }, [])
 
   const closeModal = (e) => {
     e.preventDefault();
