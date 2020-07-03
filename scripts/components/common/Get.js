@@ -11,6 +11,7 @@ export const Get = ({ url, children }) => {
       .then(res => res.json())
       .then(
         (result) => {
+          console.log('fuck', result);
           setResponse(result);
           setLoading(false);
         },

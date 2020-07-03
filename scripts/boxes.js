@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { App } from "./components/boxes/App"
+import AppWrapper from "./components/boxes/AppWrapper"
 
 var form = document.querySelector('form[action="/cart/add"]');
 if (form) {
@@ -11,4 +11,4 @@ if (form) {
 
 const rootEl = document.getElementById("react-boxes")
 
-rootEl && ReactDOM.render(<App />, rootEl)
+rootEl && ReactDOM.render(<AppWrapper />, rootEl)

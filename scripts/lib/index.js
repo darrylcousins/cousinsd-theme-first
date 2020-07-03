@@ -23,3 +23,7 @@ export const dateToISOString = (date) => {
   return date.toISOString().slice(0, 10); // try this out later
 }
 
+const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+export const checkLengths = (a, b) => {
+  if (!(arrSum(a) === arrSum(b))) throw 'Product lengths do not match!!!';
+};

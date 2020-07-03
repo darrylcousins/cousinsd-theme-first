@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
+  Banner,
   Button,
   Popover,
   ActionList,
 } from '@shopify/polaris';
-import { Query } from 'react-apollo';
+import { Query } from '@apollo/react-components';
 
-export const DateSelect = ({ delivered, boxes, onSelect }) => {
+export const DateSelect = ({ initialData, boxes, onSelect }) => {
 
   /* delivery date stuff */
-  const [deliveryDate, setDeliveryDate] = useState(delivered);
+  const [deliveryDate, setDeliveryDate] = useState(initialData.delivered);
   /* end delivery date stuff */
 
   /* action select stuff */
@@ -18,6 +19,7 @@ export const DateSelect = ({ delivered, boxes, onSelect }) => {
     () => setSelectActive((selectActive) => !selectActive),
     [],
   );
+
   const activator = (
     <Button
       onClick={toggleSelectActive}
@@ -27,40 +29,76 @@ export const DateSelect = ({ delivered, boxes, onSelect }) => {
   );
   /* end action select stuff */
 
-  const handleDateSelect = ({ title, delivered, id }) => {
-    setDeliveryDate(delivered);
+  const handleDateSelect = (data) => {
+    setDeliveryDate(data.delivered);
     setSelectActive(false);
-    onSelect({ title, delivered, id });
+    onSelect(data);
   };
 
   useEffect(() => {
-    if (boxes.length == 1) {
-      handleDateSelect({
-        delivered: boxes[0].delivered,
-        id: boxes[0].id,
-        title: boxes[0].shopify_title,
-      });
+    if (initialData.delivered > 0) {
+      handleDateSelect(initialData);
+    } else {
+      if (boxes.length == 1) {
+        handleDateSelect({
+          delivered: boxes[0].delivered,
+          shopify_id: boxes[0].shopify_id,
+          boxId: boxes[0].id,
+          shopify_title: boxes[0].shopify_title,
+          /* reset because selected different box */
+          including: [],
+          dislikes: [],
+          addons: [],
+          subscribed: false,
+          total_price: 0,
+        });
+      };
     };
   }, []);
 
+  const ShowBanner = () => {
+    if (!deliveryDate) {
+      return (
+        <div style={{ marginBottom: '1rem' }}>
+          <Banner status='warning'>Please choose a date for delivery</Banner> 
+        </div>
+      );
+    };
+    return null;
+  };
+
   return (
-    <Popover
-      fullWidth
-      active={selectActive}
-      activator={activator}
-      onClose={toggleSelectActive}
-    >
-      <ActionList
-        items={
-          boxes.map(item => (
-            {
-              content: new Date(parseInt(item.delivered)).toDateString(),
-              onAction: () => handleDateSelect({ title: item.shopify_title, delivered: item.delivered, id: item.id }),
-            }
-          ))
-        }
-      />
-    </Popover>
+    <>
+      <ShowBanner />
+      <Popover
+        fullWidth
+        active={selectActive}
+        activator={activator}
+        onClose={toggleSelectActive}
+      >
+        <ActionList
+          items={
+            boxes.map(item => (
+              {
+                content: new Date(parseInt(item.delivered)).toDateString(),
+                onAction: () => handleDateSelect({
+                  shopify_title: item.shopify_title,
+                  delivered: item.delivered,
+                  shopify_id: item.shopify_id,
+                  boxId: item.id,
+                  /* reset because selected different box */
+                  including: [],
+                  dislikes: [],
+                  addons: [],
+                  subscribed: false,
+                  total_price: 0,
+                }),
+              }
+            ))
+          }
+        />
+      </Popover>
+    </>
   );
 }
 

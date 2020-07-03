@@ -2,6 +2,9 @@
 *.swp
 *.swo
 
+# builds
+*.bundle.*
+
 config.yml
 # sequelize-cli config
 config/config.json

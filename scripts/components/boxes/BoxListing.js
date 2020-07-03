@@ -3,28 +3,37 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { Query } from 'react-apollo';
 import { nameSort, numberFormat } from '../../lib';
 import { Get } from '../common/Get'
-import { Products } from './Products';
-import { SHOP, SHOP_ID } from '../../config';
+import { Subscription } from './Subscription';
+import { ProductList } from './ProductList';
+import { SHOP_ID } from '../../config';
 
 export const BoxListing = ({ options, title, delivered, productList, addOnProductList }) => {
 
   /* options are from existing cart or null values:
   {delivered, including, addons, removed}
   */
+  const [subscribed, setSubscribed] = useState('onetime');
+  const handleSubscriptionChange = useCallback(
+    (_checked, newValue) => setSubscribed(newValue),
+    [],
+  );
 
   const [allProducts, setAllProducts] = useState({
     'products': productList,
     'addons': addOnProductList,
   });
-  console.log(JSON.stringify(options.addons, null, 2));
-  console.log(JSON.stringify(options.including, null, 2));
+
+  const handleProductsChange = useCallback((allProducts) => {
+    console.log('updating on change', allProducts);
+    setAllProducts(allProducts);
+  }, [],
+  );
 
   useEffect(() => {
     let addons = Array();
     let products = Array();
     addOnProductList.forEach((el, idx) => {
       let pushed = false;
-      console.log(el.title);
       if (options.addons) {
         if (options.addons.indexOf(el.title) > -1) {
           products.push(el);
@@ -38,7 +47,6 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
         };
       };
       if (!pushed) {
-        console.log('finally addons', el.title);
         addons.push(el);
       };
     });
@@ -63,16 +71,17 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
         };
       };
       if (!pushed) {
-        console.log('finally products', el.title);
         products.push(el);
       };
     });
-    setAllProducts({
+    console.log('in useEffect BoxListing');
+    console.log(products);
+    console.log(addons);
+    handleProductsChange({
       'products': products,
       'addons': addons,
     });
   }, []);
-
 
   const [loaded, setLoaded] = useState(false);
   const [productCount, setproductCount] = useState(productList.length);
@@ -80,7 +89,7 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   async function postToCart(data) {
-    const response = await fetch(`${SHOP}/cart/add.js`,{
+    const response = await fetch(`/cart/add.js`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -104,6 +113,8 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
 
       const deliveryDate = new Date(parseInt(delivered)).toDateString();
 
+      console.log(JSON.stringify(allProducts, null, 2));
+
       const products = allProducts['products'].filter(el => !el.isAddOn);
       const productString = products.map(el => el.title).join(', ');
 
@@ -123,15 +134,20 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
             }
           });
       });
+      const properties = {
+        'Delivery Date': `${deliveryDate}`,
+        'Including': productString,
+        'Add on items': addOnString,
+        'Removed items': removedString,
+      }
+      if (subscribed == 'subscribe') {
+        properties['Subscription'] = 'Weekly';
+      }
+      console.log('properties', properties);
       items.push({
         quantity: 1,
         id: option.value,
-        properties: {
-          'Delivery Date': `${deliveryDate}`,
-          'Including': productString,
-          'Add on items': addOnString,
-          'Removed items': removedString,
-        }
+        properties: properties,
       });
       cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;
       const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
@@ -146,69 +162,29 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
     return () => {
       form.removeEventListener('submit', submitHandler);
     };
-  }, []);
-
-  const onDragStart = (start) => {
-  };
-
-  const onDragEnd = (result) => {
-    const { destination, source, draggableId } = result;
-
-    if (!destination) return;
-
-    const startId = source.droppableId;
-    const endId = destination.droppableId;
-
-    if (startId == endId) return;
-
-    var product = allProducts[startId]
-      .concat(allProducts[endId])
-      .find(el =>  el.id === draggableId);
-
-    var start = Array.from(allProducts[startId]);
-    var end = Array.from(allProducts[endId]);
-
-    // remove from start
-    start = start.filter(el => el.id !== product.id);
-
-    // push to end
-    end.push(product);
-    end.sort(nameSort);
-
-    const newAll = {};
-    newAll[startId] = start;
-    newAll[endId] = end;
-
-    if (product.isAddOn) {
-      const origPrice = parseFloat(priceElement.innerHTML.trim().slice(1));
-      const diff = parseFloat(product.price) * 0.01;
-      if (endId == 'products') {
-        priceElement.innerHTML = numberFormat(origPrice + diff);
-      } else if (endId == 'addons') {
-        priceElement.innerHTML = numberFormat(origPrice - diff);
-      }
-    }
-
-    setAllProducts(newAll);
-  };
-
-  const isProductDragDisabled = allProducts['products']
-    .filter(el => !el.isAddOn).length < productCount;
+  }, [allProducts]);
 
   return (
-    <DragDropContext
-      onDragEnd={onDragEnd}
-    >
-      <Products
-        products={allProducts['products']}
-        id={'products'}
-        isProductDragDisabled={isProductDragDisabled}
-      />
-      <Products
-        products={allProducts['addons']}
-        id={'addons'}
-        isProductDragDisabled={false}
-      />
-    </DragDropContext>
+    <>
+      <div style={{
+        margin: '1rem 0',
+        display: 'flex',
+        width: '100%',
+        position: 'relative',
+      }}>
+      </div>
+        <ProductList products={allProducts['products']} />
+        <ProductList products={allProducts['addons']} />
+      <div style={{
+        margin: '1rem 0',
+        display: 'flex',
+        width: '100%',
+        position: 'relative',
+      }}>
+        <Subscription
+          state={subscribed}
+          handleChange={handleSubscriptionChange} />
+      </div>
+    </>
   );
 }

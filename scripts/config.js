@@ -1,13 +1,4 @@
 //export const SHOP = 'http://cousinsd-app-test.myshopify.com';
 export const SHOP_ID = 1;
 //export const HOST = 'https://fast-spire-96062.herokuapp.com';
-export const HOST='https://03b956fa3bc2.ngrok.io';
-
-var shop = 'https://cousinsd-app-test.myshopify.com';
-
-if (typeof(LOCAL) !== 'undefined') {
-  shop = 'http://localhost:8080/public';
-}
-
-export const SHOP = shop;
-  
+export const HOST='https://d814c6c8656e.ngrok.io';

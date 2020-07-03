@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=local webpack-dev-server",
+    "dev": "NODE_ENV=local webpack-dev-server --config webpack.config.js",
     "prebuild": "rimraf ./build",
     "watch": "webpack --config webpack.dev.js --progress --color",
     "build": "webpack --mode production --config webpack.prod.js --progress --color",
@@ -25,17 +25,12 @@
   ],
   "homepage": "https://github.com/darrylcousins/cousinsd-theme-first#readme",
   "dependencies": {
-    "@apollo/client": "^3.0.0-rc.2",
-    "@apollo/react-hooks": "^3.1.5",
-    "@shopify/polaris": "^4.25.0",
-    "@shopify/polaris-icons": "^3.10.0",
-    "apollo-boost": "^0.4.9",
-    "graphql": "^15.1.0",
+    "@apollo/client": "^3.0.0-rc.10",
+    "@apollo/react-components": "^4.0.0-beta.1",
+    "@shopify/polaris": "^4.26.1",
+    "graphql": "^15.2.0",
     "react": "^16.13.1",
-    "react-apollo": "^3.1.5",
-    "react-beautiful-dnd": "^13.0.0",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
