@@ -1,7 +1,7 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { HOST } from '../config';
 import { resolvers, typeDefs } from './resolvers';
-import { GET_INITIAL, GET_CURRENT_BOX } from './local-queries';
+import { GET_INITIAL, GET_CURRENT_SELECTION } from './local-queries';
 
 export const Client = new ApolloClient({
   link: new HttpLink({ uri: `${HOST}/local_graphql` }),
@@ -15,6 +15,7 @@ export const Client = new ApolloClient({
 });
 
 const initial = {
+  box_id: 0,
   delivered: null,
   including: [],
   addons: [],
@@ -23,6 +24,7 @@ const initial = {
   shopify_id: 0,
   subscribed: false,
   total_price: 0,
+  quantities: [],
 };
 
 Client.writeQuery({
@@ -32,16 +34,17 @@ Client.writeQuery({
   }
 });
 
-const current= {
+const current = {
   box: {},
   delivered: '',
   including: [],
   addons: [],
+  exaddons: [],
   dislikes: [],
 }
 
 Client.writeQuery({
-  query: GET_CURRENT_BOX,
+  query: GET_CURRENT_SELECTION,
   data: {
     current,
   }

@@ -41,14 +41,15 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
     } else {
       if (boxes.length == 1) {
         handleDateSelect({
-          delivered: boxes[0].delivered,
+          delivered: parseInt(boxes[0].delivered),
           shopify_id: boxes[0].shopify_id,
-          boxId: boxes[0].id,
+          box_id: boxes[0].id,
           shopify_title: boxes[0].shopify_title,
           /* reset because selected different box */
           including: [],
           dislikes: [],
           addons: [],
+          quantities: [],
           subscribed: false,
           total_price: 0,
         });
@@ -85,11 +86,12 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
                   shopify_title: item.shopify_title,
                   delivered: item.delivered,
                   shopify_id: item.shopify_id,
-                  boxId: item.id,
+                  box_id: item.id,
                   /* reset because selected different box */
                   including: [],
                   dislikes: [],
                   addons: [],
+                  quantities: [],
                   subscribed: false,
                   total_price: 0,
                 }),

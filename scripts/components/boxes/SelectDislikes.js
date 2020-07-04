@@ -5,11 +5,17 @@ import {
   Popover,
 } from '@shopify/polaris';
 import { Query } from '@apollo/react-components';
+import { Client } from '../../graphql/client'
+import { Loader } from '../common/Loader';
+import { Error } from '../common/Error';
+import {
+  GET_CURRENT_SELECTION,
+} from '../../graphql/local-queries';
 
-export const SelectDislikes = ({ products }) => {
+export const SelectDislikes = () => {
   
-  console.log(products);
-
+  /* XXX products are current.including */
+  
   /* action select stuff */
   const [selectActive, setSelectActive] = useState(false);
   const toggleSelectActive = useCallback(
@@ -25,29 +31,47 @@ export const SelectDislikes = ({ products }) => {
   );
   /* end action select stuff */
 
-  const handleAction = (product) => {
+  const handleAction = ({ product, data }) => {
     toggleSelectActive();
-    console.log(product);
+    const current = { ...data.current };
+    current.including = current.including.filter(el => el.id !== product.id);
+    current.dislikes = current.dislikes.concat([product]);
+    Client.writeQuery({ 
+      query: GET_CURRENT_SELECTION,
+      data: { current },
+    });
   };
 
   return (
-    <Popover
-      fullWidth
-      active={selectActive}
-      activator={activator}
-      onClose={toggleSelectActive}
+    <Query
+      query={GET_CURRENT_SELECTION}
     >
-      <ActionList
-        items={
-          products.map(product => (
-            {
-              content: product.title,
-              onAction: () => handleAction(product.title),
-            }
-          ))
-        }
-      />
-    </Popover>
+      {({ loading, error, data }) => {
+        if (loading) return <Loader lines={2} />;
+        if (error) return <Error message={error.message} />;
+        const products = data.current.including;
+
+        return (
+          <Popover
+            fullWidth
+            active={selectActive}
+            activator={activator}
+            onClose={toggleSelectActive}
+          >
+            <ActionList
+              items={
+                products.map(product => (
+                  {
+                    content: product.title,
+                    onAction: () => handleAction({ product, data }),
+                  }
+                ))
+              }
+            />
+          </Popover>
+        );
+      }}
+    </Query>
   );
 }
 

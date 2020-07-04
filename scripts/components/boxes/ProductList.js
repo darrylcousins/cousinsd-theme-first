@@ -1,79 +1,68 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React from 'react';
 import {
-  Banner,
-  Spinner,
+  Badge,
   Stack,
+  Spinner,
   Subheading,
 } from '@shopify/polaris';
 import { Query } from '@apollo/react-components';
-import { LoadingTextMarkup } from '../common/LoadingTextMarkup';
+import { Loader } from '../common/Loader';
+import { Error } from '../common/Error';
+import { Product } from './Product';
+import { ProductIncluded } from './ProductIncluded';
+import { ProductDislike } from './ProductDislike';
+import { ProductExaddon } from './ProductExaddon';
 import {
-  GET_CURRENT_BOX,
-  GET_INITIAL,
+  GET_CURRENT_SELECTION,
 } from '../../graphql/local-queries';
 
-export const ProductList = ({ key, type }) => {
+export const ProductList = ({ type }) => {
   
-  //console.log(products);
+  console.log(type);
   let status;
-  let query;
+  let title;
 
   switch(type) {
-    case 'boxproducts':
-      status = 'info';
-      query = GET_CURRENT_BOX;
-      break;
-    case 'included':
+    case 'including':
       status = 'success';
-      query = GET_INITIAL;
+      title = 'box products';
       break;
     case 'dislikes':
       status = 'warning';
-      query = GET_DISLIKES;
+      title = 'dislikes';
       break;
     case 'exaddons':
       status = 'attention';
-      query = GET_EX_ADDONS;
+      title = 'available addons';
       break;
   }
 
-  const products = [];
-
   return (
     <Query
-      query={query}
+      query={GET_CURRENT_SELECTION}
     >
-      {({ loading, error, data, refetch }) => {
-        if (loading) { 
-          return (
-              <LoadingTextMarkup lines={1} />
-          );
+      {({ loading, error, data }) => {
+        if (loading) return <Loader lines={2} />;
+        if (error) return <Error message={error.message} />;
+        if (type === 'including') {
+           var products = data.current.including.concat(data.current.addons);
+        } else {
+          var products = data.current[type];
         };
-        if (error) { return (
-          <Banner status="critical">{error.message}</Banner>
-        )};
-
-        console.log(data);
+        console.log(type, products);
 
         return (
           <div style={{ margin: '1em 0 1em 0' }}>
-            <Subheading>{type}</Subheading>
+            <Subheading>{title}</Subheading>
             <Stack
               spacing='extraTight'
             >
-                { products.map((el) => (
-                  <Badge
-                    key={ el.id }
-                    status={status}
-                  >{ el.title }</Badge> )
-                )
-              }
+              { products.map(el => <Product key={el.id} product={el} type={type} /> ) }
             </Stack>
           </div>
         );
-
       }}
     </Query>
   );
 }
-
+// products.map((el) => <Product key={el.id} product={el} type={type} /> )

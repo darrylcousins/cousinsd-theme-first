@@ -30,7 +30,8 @@
     "@shopify/polaris": "^4.26.1",
     "graphql": "^15.2.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",

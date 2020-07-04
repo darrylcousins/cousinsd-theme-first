@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const GET_INITIAL = gql`
   query getInitial @client {
     initial {
+      box_id
       delivered
       including
       addons
@@ -11,17 +12,19 @@ export const GET_INITIAL = gql`
       shopify_id
       subscribed
       total_price
+      quantities
     }
   }
 `;
 
-export const GET_CURRENT_BOX = gql`
-  query getCurrentBox @client {
+export const GET_CURRENT_SELECTION = gql`
+  query getCurrent @client {
     current {
       box
       delivered
       including
       addons
+      exaddons
       dislikes
     }
   }

@@ -1,0 +1,2982 @@
+{
+  "products": [
+    {
+      "id": 4502212345914,
+      "title": "Agria Potato",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:58-04:00",
+      "handle": "agria-potato",
+      "updated_at": "2020-07-04T07:52:58-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212345914",
+      "variants": [
+        {
+          "id": 31792460398650,
+          "product_id": 4502212345914,
+          "title": "Agria Potato",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Agria Potato",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:58-04:00",
+          "updated_at": "2020-07-04T07:52:58-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095340090,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460398650"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702842426,
+          "product_id": 4502212345914,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Agria Potato"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212476986,
+      "title": "Apples NZ Rose",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:00-04:00",
+      "handle": "apples-nz-rose",
+      "updated_at": "2020-07-04T07:53:00-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212476986",
+      "variants": [
+        {
+          "id": 31792460529722,
+          "product_id": 4502212476986,
+          "title": "Apples NZ Rose",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Apples NZ Rose",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:00-04:00",
+          "updated_at": "2020-07-04T07:53:00-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095471162,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460529722"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702973498,
+          "product_id": 4502212476986,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Apples NZ Rose"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213296186,
+      "title": "Baby Kale",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:08-04:00",
+      "handle": "baby-kale",
+      "updated_at": "2020-07-04T07:53:08-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213296186",
+      "variants": [
+        {
+          "id": 31792461840442,
+          "product_id": 4502213296186,
+          "title": "Baby Kale",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Baby Kale",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:08-04:00",
+          "updated_at": "2020-07-04T07:53:08-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096781882,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461840442"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703825466,
+          "product_id": 4502213296186,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Baby Kale"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212771898,
+      "title": "Beans Green",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:03-04:00",
+      "handle": "beans-green",
+      "updated_at": "2020-07-04T07:53:03-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212771898",
+      "variants": [
+        {
+          "id": 31792461316154,
+          "product_id": 4502212771898,
+          "title": "Beans Green",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Beans Green",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:03-04:00",
+          "updated_at": "2020-07-04T07:53:03-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096257594,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461316154"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703301178,
+          "product_id": 4502212771898,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Beans Green"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212804666,
+      "title": "Beans Yellow",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:03-04:00",
+      "handle": "beans-yellow",
+      "updated_at": "2020-07-04T07:53:03-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212804666",
+      "variants": [
+        {
+          "id": 31792461348922,
+          "product_id": 4502212804666,
+          "title": "Beans Yellow",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Beans Yellow",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:03-04:00",
+          "updated_at": "2020-07-04T07:53:03-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096290362,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461348922"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703333946,
+          "product_id": 4502212804666,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Beans Yellow"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212051002,
+      "title": "Beetroot",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:55-04:00",
+      "handle": "beetroot",
+      "updated_at": "2020-07-04T07:52:55-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212051002",
+      "variants": [
+        {
+          "id": 31792459677754,
+          "product_id": 4502212051002,
+          "title": "Beetroot",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Beetroot",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:55-04:00",
+          "updated_at": "2020-07-04T07:52:55-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497094684730,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792459677754"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702514746,
+          "product_id": 4502212051002,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Beetroot"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212902970,
+      "title": "Brocolli",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:04-04:00",
+      "handle": "brocolli",
+      "updated_at": "2020-07-04T07:53:04-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212902970",
+      "variants": [
+        {
+          "id": 31792461447226,
+          "product_id": 4502212902970,
+          "title": "Brocolli",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Brocolli",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:04-04:00",
+          "updated_at": "2020-07-04T07:53:04-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096388666,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461447226"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703432250,
+          "product_id": 4502212902970,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Brocolli"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212870202,
+      "title": "Brussels Sprouts",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:04-04:00",
+      "handle": "brussels-sprouts",
+      "updated_at": "2020-07-04T07:53:04-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212870202",
+      "variants": [
+        {
+          "id": 31792461414458,
+          "product_id": 4502212870202,
+          "title": "Brussels Sprouts",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Brussels Sprouts",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:04-04:00",
+          "updated_at": "2020-07-04T07:53:04-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096355898,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461414458"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703399482,
+          "product_id": 4502212870202,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Brussels Sprouts"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212837434,
+      "title": "Cabbage",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:03-04:00",
+      "handle": "cabbage",
+      "updated_at": "2020-07-04T07:53:03-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212837434",
+      "variants": [
+        {
+          "id": 31792461381690,
+          "product_id": 4502212837434,
+          "title": "Cabbage",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Cabbage",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:03-04:00",
+          "updated_at": "2020-07-04T07:53:03-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096323130,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461381690"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703366714,
+          "product_id": 4502212837434,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Cabbage"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213754938,
+      "title": "Capsicum",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:11-04:00",
+      "handle": "capsicum",
+      "updated_at": "2020-07-04T07:53:11-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213754938",
+      "variants": [
+        {
+          "id": 31792462954554,
+          "product_id": 4502213754938,
+          "title": "Capsicum",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Capsicum",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:11-04:00",
+          "updated_at": "2020-07-04T07:53:11-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497097895994,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462954554"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881704349754,
+          "product_id": 4502213754938,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Capsicum"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212575290,
+      "title": "Carrots",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:01-04:00",
+      "handle": "carrots",
+      "updated_at": "2020-07-04T07:53:01-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212575290",
+      "variants": [
+        {
+          "id": 31792460660794,
+          "product_id": 4502212575290,
+          "title": "Carrots",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Carrots",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:01-04:00",
+          "updated_at": "2020-07-04T07:53:01-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095602234,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460660794"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703071802,
+          "product_id": 4502212575290,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Carrots"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213066810,
+      "title": "Cauliflower",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:05-04:00",
+      "handle": "cauliflower",
+      "updated_at": "2020-07-04T07:53:06-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213066810",
+      "variants": [
+        {
+          "id": 31792461611066,
+          "product_id": 4502213066810,
+          "title": "Cauliflower",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Cauliflower",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:06-04:00",
+          "updated_at": "2020-07-04T07:53:06-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096552506,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461611066"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703596090,
+          "product_id": 4502213066810,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Cauliflower"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212214842,
+      "title": "Cavolonero Kale",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:57-04:00",
+      "handle": "cavolonero-kale",
+      "updated_at": "2020-07-04T07:52:57-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212214842",
+      "variants": [
+        {
+          "id": 31792460267578,
+          "product_id": 4502212214842,
+          "title": "Cavolonero Kale",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Cavolonero Kale",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:57-04:00",
+          "updated_at": "2020-07-04T07:52:57-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095209018,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460267578"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702711354,
+          "product_id": 4502212214842,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Cavolonero Kale"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213034042,
+      "title": "Celeriac",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:05-04:00",
+      "handle": "celeriac",
+      "updated_at": "2020-07-04T07:53:05-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213034042",
+      "variants": [
+        {
+          "id": 31792461578298,
+          "product_id": 4502213034042,
+          "title": "Celeriac",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Celeriac",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:05-04:00",
+          "updated_at": "2020-07-04T07:53:05-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096519738,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461578298"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703563322,
+          "product_id": 4502213034042,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Celeriac"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213001274,
+      "title": "Celery",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:05-04:00",
+      "handle": "celery",
+      "updated_at": "2020-07-04T07:53:05-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213001274",
+      "variants": [
+        {
+          "id": 31792461545530,
+          "product_id": 4502213001274,
+          "title": "Celery",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Celery",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:05-04:00",
+          "updated_at": "2020-07-04T07:53:05-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096486970,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461545530"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703530554,
+          "product_id": 4502213001274,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Celery"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212968506,
+      "title": "Cucumber",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:05-04:00",
+      "handle": "cucumber",
+      "updated_at": "2020-07-04T07:53:05-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212968506",
+      "variants": [
+        {
+          "id": 31792461512762,
+          "product_id": 4502212968506,
+          "title": "Cucumber",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Cucumber",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:05-04:00",
+          "updated_at": "2020-07-04T07:53:05-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096454202,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461512762"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703497786,
+          "product_id": 4502212968506,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Cucumber"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213165114,
+      "title": "Curly Kale",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:06-04:00",
+      "handle": "curly-kale",
+      "updated_at": "2020-07-04T07:53:07-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213165114",
+      "variants": [
+        {
+          "id": 31792461709370,
+          "product_id": 4502213165114,
+          "title": "Curly Kale",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Curly Kale",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:06-04:00",
+          "updated_at": "2020-07-04T07:53:06-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096650810,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461709370"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703694394,
+          "product_id": 4502213165114,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Curly Kale"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212116538,
+      "title": "Dill",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:55-04:00",
+      "handle": "dill",
+      "updated_at": "2020-07-04T07:52:56-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212116538",
+      "variants": [
+        {
+          "id": 31792459776058,
+          "product_id": 4502212116538,
+          "title": "Dill",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Dill",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:56-04:00",
+          "updated_at": "2020-07-04T07:52:56-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095110714,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792459776058"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702613050,
+          "product_id": 4502212116538,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Dill"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212935738,
+      "title": "Eggplant",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:04-04:00",
+      "handle": "eggplant",
+      "updated_at": "2020-07-04T07:53:04-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212935738",
+      "variants": [
+        {
+          "id": 31792461479994,
+          "product_id": 4502212935738,
+          "title": "Eggplant",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Eggplant",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:04-04:00",
+          "updated_at": "2020-07-04T07:53:04-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096421434,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461479994"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703465018,
+          "product_id": 4502212935738,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Eggplant"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212247610,
+      "title": "Fennel",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:57-04:00",
+      "handle": "fennel",
+      "updated_at": "2020-07-04T07:52:57-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212247610",
+      "variants": [
+        {
+          "id": 31792460300346,
+          "product_id": 4502212247610,
+          "title": "Fennel",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Fennel",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:57-04:00",
+          "updated_at": "2020-07-04T07:52:57-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095241786,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460300346"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702744122,
+          "product_id": 4502212247610,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Fennel"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213132346,
+      "title": "Garlic",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:06-04:00",
+      "handle": "garlic",
+      "updated_at": "2020-07-04T07:53:06-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213132346",
+      "variants": [
+        {
+          "id": 31792461676602,
+          "product_id": 4502213132346,
+          "title": "Garlic",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Garlic",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:06-04:00",
+          "updated_at": "2020-07-04T07:53:06-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096618042,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461676602"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703661626,
+          "product_id": 4502213132346,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Garlic"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213722170,
+      "title": "Kohlrabi",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:11-04:00",
+      "handle": "kohlrabi",
+      "updated_at": "2020-07-04T07:53:11-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213722170",
+      "variants": [
+        {
+          "id": 31792462921786,
+          "product_id": 4502213722170,
+          "title": "Kohlrabi",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Kohlrabi",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:11-04:00",
+          "updated_at": "2020-07-04T07:53:11-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497097863226,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462921786"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881704316986,
+          "product_id": 4502213722170,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Kohlrabi"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4486431703098,
+      "title": "Large Vege -Seasonal Organic Box",
+      "body_html": "<meta charset=\"utf-8\"><meta charset=\"utf-8\">\n<h4>\n<strong></strong>Our Vegetables are all Certified Organic!</h4>\n<p><strong>Orders and Payment must be placed 3 days before delivery day:</strong><span></span></p>\n<p><strong>THURSDAY Delivery</strong><span> </span>(Christchurch and surrounding towns) <br>Orders need to be placed and paid by Monday night.</p>\n<p><span>Delivery between 10am and 9pm</span></p>",
+      "vendor": "Spring Collective",
+      "product_type": "Veggie Box",
+      "created_at": "2020-06-11T08:15:01-04:00",
+      "handle": "copy-of-medium-seasonal-organic-vege-box",
+      "updated_at": "2020-06-30T04:15:42-04:00",
+      "published_at": "2020-06-11T08:15:00-04:00",
+      "template_suffix": "",
+      "published_scope": "web",
+      "tags": "spo-default, spo-enabled",
+      "admin_graphql_api_id": "gid://shopify/Product/4486431703098",
+      "variants": [
+        {
+          "id": 31712535314490,
+          "product_id": 4486431703098,
+          "title": "Default Title",
+          "price": "50.00",
+          "sku": "LV",
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-06-11T08:17:36-04:00",
+          "updated_at": "2020-06-30T04:13:55-04:00",
+          "taxable": true,
+          "barcode": "",
+          "grams": 5000,
+          "image_id": null,
+          "weight": 5,
+          "weight_unit": "kg",
+          "inventory_item_id": 33422059339834,
+          "inventory_quantity": 97,
+          "old_inventory_quantity": 97,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31712535314490"
+        }
+      ],
+      "options": [
+        {
+          "id": 5858844868666,
+          "product_id": 4486431703098,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": 13988714643514,
+          "product_id": 4486431703098,
+          "position": 1,
+          "created_at": "2020-06-11T08:15:02-04:00",
+          "updated_at": "2020-06-11T08:15:02-04:00",
+          "alt": null,
+          "width": 1105,
+          "height": 1372,
+          "src": "https://cdn.shopify.com/s/files/1/0259/5785/9386/products/MediumVege_b55e506a-a924-444c-baf4-755dec952e57.jpg?v=1591877702",
+          "variant_ids": [],
+          "admin_graphql_api_id": "gid://shopify/ProductImage/13988714643514"
+        }
+      ],
+      "image": {
+        "id": 13988714643514,
+        "product_id": 4486431703098,
+        "position": 1,
+        "created_at": "2020-06-11T08:15:02-04:00",
+        "updated_at": "2020-06-11T08:15:02-04:00",
+        "alt": null,
+        "width": 1105,
+        "height": 1372,
+        "src": "https://cdn.shopify.com/s/files/1/0259/5785/9386/products/MediumVege_b55e506a-a924-444c-baf4-755dec952e57.jpg?v=1591877702",
+        "variant_ids": [],
+        "admin_graphql_api_id": "gid://shopify/ProductImage/13988714643514"
+      }
+    },
+    {
+      "id": 4502213197882,
+      "title": "Leek",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:07-04:00",
+      "handle": "leek",
+      "updated_at": "2020-07-04T07:53:07-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213197882",
+      "variants": [
+        {
+          "id": 31792461742138,
+          "product_id": 4502213197882,
+          "title": "Leek",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Leek",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:07-04:00",
+          "updated_at": "2020-07-04T07:53:07-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096683578,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461742138"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703727162,
+          "product_id": 4502213197882,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Leek"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212280378,
+      "title": "Lettuce",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:57-04:00",
+      "handle": "lettuce",
+      "updated_at": "2020-07-04T07:52:58-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212280378",
+      "variants": [
+        {
+          "id": 31792460333114,
+          "product_id": 4502212280378,
+          "title": "Lettuce",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Lettuce",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:58-04:00",
+          "updated_at": "2020-07-04T07:52:58-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095274554,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460333114"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702776890,
+          "product_id": 4502212280378,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Lettuce"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4486431899706,
+      "title": "Medium Vege - Seasonal Organic Box",
+      "body_html": "<meta charset=\"utf-8\"><meta charset=\"utf-8\">\n<h4>\n<strong></strong>Our Vegetables are all Certified Organic!</h4>\n<p><strong>Orders and Payment must be placed 3 days before delivery day:</strong><span></span></p>\n<p><strong></strong><strong>SATURDAY Delivery</strong><span> </span>(Christchurch only)<br>Orders need to be placed and paid Wednesday night.</p>\n<p><span>Delivery between 10am and 9pm</span></p>",
+      "vendor": "Spring Collective",
+      "product_type": "Veggie Box",
+      "created_at": "2020-06-11T08:15:09-04:00",
+      "handle": "medium-seasonal-vege-box",
+      "updated_at": "2020-07-01T22:21:31-04:00",
+      "published_at": "2020-06-11T08:15:09-04:00",
+      "template_suffix": "",
+      "published_scope": "web",
+      "tags": "spo-default, spo-enabled",
+      "admin_graphql_api_id": "gid://shopify/Product/4486431899706",
+      "variants": [
+        {
+          "id": 31712536330298,
+          "product_id": 4486431899706,
+          "title": "Default Title",
+          "price": "35.00",
+          "sku": "MV",
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-06-11T08:18:17-04:00",
+          "updated_at": "2020-07-01T22:19:05-04:00",
+          "taxable": true,
+          "barcode": "",
+          "grams": 5000,
+          "image_id": null,
+          "weight": 5,
+          "weight_unit": "kg",
+          "inventory_item_id": 33422060847162,
+          "inventory_quantity": 97,
+          "old_inventory_quantity": 97,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31712536330298"
+        }
+      ],
+      "options": [
+        {
+          "id": 5858845098042,
+          "product_id": 4486431899706,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": 13988714840122,
+          "product_id": 4486431899706,
+          "position": 1,
+          "created_at": "2020-06-11T08:15:10-04:00",
+          "updated_at": "2020-06-11T08:15:10-04:00",
+          "alt": null,
+          "width": 1105,
+          "height": 1372,
+          "src": "https://cdn.shopify.com/s/files/1/0259/5785/9386/products/MediumVege.jpg?v=1591877710",
+          "variant_ids": [],
+          "admin_graphql_api_id": "gid://shopify/ProductImage/13988714840122"
+        }
+      ],
+      "image": {
+        "id": 13988714840122,
+        "product_id": 4486431899706,
+        "position": 1,
+        "created_at": "2020-06-11T08:15:10-04:00",
+        "updated_at": "2020-06-11T08:15:10-04:00",
+        "alt": null,
+        "width": 1105,
+        "height": 1372,
+        "src": "https://cdn.shopify.com/s/files/1/0259/5785/9386/products/MediumVege.jpg?v=1591877710",
+        "variant_ids": [],
+        "admin_graphql_api_id": "gid://shopify/ProductImage/13988714840122"
+      }
+    },
+    {
+      "id": 4502213263418,
+      "title": "Microgreens",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:07-04:00",
+      "handle": "microgreens",
+      "updated_at": "2020-07-04T07:53:07-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213263418",
+      "variants": [
+        {
+          "id": 31792461807674,
+          "product_id": 4502213263418,
+          "title": "Microgreens",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Microgreens",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:07-04:00",
+          "updated_at": "2020-07-04T07:53:07-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096749114,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461807674"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703792698,
+          "product_id": 4502213263418,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Microgreens"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212182074,
+      "title": "Onions Brown",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:56-04:00",
+      "handle": "onions-brown",
+      "updated_at": "2020-07-04T07:52:56-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212182074",
+      "variants": [
+        {
+          "id": 31792460234810,
+          "product_id": 4502212182074,
+          "title": "Onions Brown",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Onions Brown",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:56-04:00",
+          "updated_at": "2020-07-04T07:52:56-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095176250,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460234810"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702678586,
+          "product_id": 4502212182074,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Onions Brown"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212706362,
+      "title": "Onions Red",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:02-04:00",
+      "handle": "onions-red",
+      "updated_at": "2020-07-04T07:53:02-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212706362",
+      "variants": [
+        {
+          "id": 31792461250618,
+          "product_id": 4502212706362,
+          "title": "Onions Red",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Onions Red",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:02-04:00",
+          "updated_at": "2020-07-04T07:53:02-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096192058,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461250618"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703235642,
+          "product_id": 4502212706362,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Onions Red"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212313146,
+      "title": "Pak Choi",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:58-04:00",
+      "handle": "pak-choi",
+      "updated_at": "2020-07-04T07:52:58-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212313146",
+      "variants": [
+        {
+          "id": 31792460365882,
+          "product_id": 4502212313146,
+          "title": "Pak Choi",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Pak Choi",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:58-04:00",
+          "updated_at": "2020-07-04T07:52:58-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095307322,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460365882"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702809658,
+          "product_id": 4502212313146,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Pak Choi"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212149306,
+      "title": "Parsley",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:56-04:00",
+      "handle": "parsley",
+      "updated_at": "2020-07-04T07:52:56-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212149306",
+      "variants": [
+        {
+          "id": 31792460202042,
+          "product_id": 4502212149306,
+          "title": "Parsley",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Parsley",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:56-04:00",
+          "updated_at": "2020-07-04T07:52:56-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095143482,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460202042"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702645818,
+          "product_id": 4502212149306,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Parsley"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212378682,
+      "title": "Parsnips",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:52:59-04:00",
+      "handle": "parsnips",
+      "updated_at": "2020-07-04T07:52:59-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212378682",
+      "variants": [
+        {
+          "id": 31792460431418,
+          "product_id": 4502212378682,
+          "title": "Parsnips",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Parsnips",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:52:59-04:00",
+          "updated_at": "2020-07-04T07:52:59-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095372858,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460431418"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881702875194,
+          "product_id": 4502212378682,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Parsnips"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502212509754,
+      "title": "Pears Burre Bosc",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:00-04:00",
+      "handle": "pears-burre-bosc",
+      "updated_at": "2020-07-04T07:53:01-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502212509754",
+      "variants": [
+        {
+          "id": 31792460562490,
+          "product_id": 4502212509754,
+          "title": "Pears Burre Bosc",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Pears Burre Bosc",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:01-04:00",
+          "updated_at": "2020-07-04T07:53:01-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497095503930,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460562490"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703006266,
+          "product_id": 4502212509754,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Pears Burre Bosc"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4502213394490,
+      "title": "Peas",
+      "body_html": "",
+      "vendor": "Spring Collective",
+      "product_type": "Box Produce",
+      "created_at": "2020-07-04T07:53:08-04:00",
+      "handle": "peas",
+      "updated_at": "2020-07-04T07:53:08-04:00",
+      "published_at": null,
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "box-produce",
+      "admin_graphql_api_id": "gid://shopify/Product/4502213394490",
+      "variants": [
+        {
+          "id": 31792461873210,
+          "product_id": 4502213394490,
+          "title": "Peas",
+          "price": "4.50",
+          "sku": null,
+          "position": 1,
+          "inventory_policy": "continue",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Peas",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-07-04T07:53:08-04:00",
+          "updated_at": "2020-07-04T07:53:08-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0,
+          "weight_unit": "kg",
+          "inventory_item_id": 33497096847418,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461873210"
+        }
+      ],
+      "options": [
+        {
+          "id": 5881703989306,
+          "product_id": 4502213394490,
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Peas"
+          ]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+  {
+    "id": 4502212411450,
+    "title": "Pumpkin Butternut",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:52:59-04:00",
+    "handle": "pumpkin-butternut",
+    "updated_at": "2020-07-04T07:52:59-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502212411450",
+    "variants": [
+      {
+        "id": 31792460464186,
+        "product_id": 4502212411450,
+        "title": "Pumpkin Butternut",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Pumpkin Butternut",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:52:59-04:00",
+        "updated_at": "2020-07-04T07:52:59-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497095405626,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460464186"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881702907962,
+        "product_id": 4502212411450,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Pumpkin Butternut"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502212444218,
+    "title": "Pumpkin Crown",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:52:59-04:00",
+    "handle": "pumpkin-crown",
+    "updated_at": "2020-07-04T07:53:00-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502212444218",
+    "variants": [
+      {
+        "id": 31792460496954,
+        "product_id": 4502212444218,
+        "title": "Pumpkin Crown",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Pumpkin Crown",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:00-04:00",
+        "updated_at": "2020-07-04T07:53:00-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497095438394,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460496954"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881702940730,
+        "product_id": 4502212444218,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Pumpkin Crown"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213460026,
+    "title": "Purple Heart Potatoes",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:09-04:00",
+    "handle": "purple-heart-potatoes",
+    "updated_at": "2020-07-04T07:53:09-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213460026",
+    "variants": [
+      {
+        "id": 31792462594106,
+        "product_id": 4502213460026,
+        "title": "Purple Heart Potatoes",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Purple Heart Potatoes",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:09-04:00",
+        "updated_at": "2020-07-04T07:53:09-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097601082,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462594106"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704054842,
+        "product_id": 4502213460026,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Purple Heart Potatoes"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213689402,
+    "title": "Radishes",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:11-04:00",
+    "handle": "radishes",
+    "updated_at": "2020-07-04T07:53:11-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213689402",
+    "variants": [
+      {
+        "id": 31792462889018,
+        "product_id": 4502213689402,
+        "title": "Radishes",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Radishes",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:11-04:00",
+        "updated_at": "2020-07-04T07:53:11-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097830458,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462889018"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704284218,
+        "product_id": 4502213689402,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Radishes"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502212640826,
+    "title": "Red Chard",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:02-04:00",
+    "handle": "red-chard",
+    "updated_at": "2020-07-04T07:53:02-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502212640826",
+    "variants": [
+      {
+        "id": 31792460693562,
+        "product_id": 4502212640826,
+        "title": "Red Chard",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Red Chard",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:02-04:00",
+        "updated_at": "2020-07-04T07:53:02-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497095929914,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460693562"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881703170106,
+        "product_id": 4502212640826,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Red Chard"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502212542522,
+    "title": "Seeded Sourdough Bread",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:01-04:00",
+    "handle": "seeded-sourdough-bread",
+    "updated_at": "2020-07-04T07:53:01-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502212542522",
+    "variants": [
+      {
+        "id": 31792460595258,
+        "product_id": 4502212542522,
+        "title": "Seeded Sourdough Bread",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Seeded Sourdough Bread",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:01-04:00",
+        "updated_at": "2020-07-04T07:53:01-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497095536698,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460595258"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881703039034,
+        "product_id": 4502212542522,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Seeded Sourdough Bread"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213787706,
+    "title": "Shallots",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:11-04:00",
+    "handle": "shallots",
+    "updated_at": "2020-07-04T07:53:12-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213787706",
+    "variants": [
+      {
+        "id": 31792462987322,
+        "product_id": 4502213787706,
+        "title": "Shallots",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Shallots",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:12-04:00",
+        "updated_at": "2020-07-04T07:53:12-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097928762,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462987322"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704382522,
+        "product_id": 4502213787706,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Shallots"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502212739130,
+    "title": "Silverbeet",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:02-04:00",
+    "handle": "silverbeet",
+    "updated_at": "2020-07-04T07:53:03-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502212739130",
+    "variants": [
+      {
+        "id": 31792461283386,
+        "product_id": 4502212739130,
+        "title": "Silverbeet",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Silverbeet",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:03-04:00",
+        "updated_at": "2020-07-04T07:53:03-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497096224826,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792461283386"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881703268410,
+        "product_id": 4502212739130,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Silverbeet"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4486431866938,
+    "title": "Small Vege - Seasonal Organic Box",
+    "body_html": "<meta charset=\"utf-8\"><meta charset=\"utf-8\">\n<p><strong>Our Vegetables are all Certified Organic!</strong></p>\n<p><strong>Orders and Payment must be placed 3 days before delivery day:</strong><span></span></p>\n<p><strong></strong><strong>SATURDAY Delivery</strong><span> </span>(Christchurch only)<br>Orders need to be placed and paid Wednesday night.</p>\n<p><span>Delivery between 10am and 9pm</span></p>",
+    "vendor": "Spring Collective",
+    "product_type": "Veggie Box",
+    "created_at": "2020-06-11T08:15:08-04:00",
+    "handle": "small-seasonal-vege-box",
+    "updated_at": "2020-07-01T22:56:43-04:00",
+    "published_at": "2020-06-11T08:15:06-04:00",
+    "template_suffix": "",
+    "published_scope": "web",
+    "tags": "spo-default, spo-enabled",
+    "admin_graphql_api_id": "gid://shopify/Product/4486431866938",
+    "variants": [
+      {
+        "id": 31712538263610,
+        "product_id": 4486431866938,
+        "title": "Default Title",
+        "price": "25.00",
+        "sku": "SV",
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-06-11T08:19:14-04:00",
+        "updated_at": "2020-07-01T22:51:35-04:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 5000,
+        "image_id": null,
+        "weight": 5,
+        "weight_unit": "kg",
+        "inventory_item_id": 33422062977082,
+        "inventory_quantity": 98,
+        "old_inventory_quantity": 98,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31712538263610"
+      }
+    ],
+    "options": [
+      {
+        "id": 5858845065274,
+        "product_id": 4486431866938,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Default Title"
+        ]
+      }
+    ],
+    "images": [
+      {
+        "id": 13988714774586,
+        "product_id": 4486431866938,
+        "position": 1,
+        "created_at": "2020-06-11T08:15:08-04:00",
+        "updated_at": "2020-06-11T08:15:08-04:00",
+        "alt": null,
+        "width": 1106,
+        "height": 1372,
+        "src": "https://cdn.shopify.com/s/files/1/0259/5785/9386/products/Smallvege.jpg?v=1591877708",
+        "variant_ids": [],
+        "admin_graphql_api_id": "gid://shopify/ProductImage/13988714774586"
+      }
+    ],
+    "image": {
+      "id": 13988714774586,
+      "product_id": 4486431866938,
+      "position": 1,
+      "created_at": "2020-06-11T08:15:08-04:00",
+      "updated_at": "2020-06-11T08:15:08-04:00",
+      "alt": null,
+      "width": 1106,
+      "height": 1372,
+      "src": "https://cdn.shopify.com/s/files/1/0259/5785/9386/products/Smallvege.jpg?v=1591877708",
+      "variant_ids": [],
+      "admin_graphql_api_id": "gid://shopify/ProductImage/13988714774586"
+    }
+  },
+  {
+    "id": 4502213427258,
+    "title": "Snow Peas",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:08-04:00",
+    "handle": "snow-peas",
+    "updated_at": "2020-07-04T07:53:08-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213427258",
+    "variants": [
+      {
+        "id": 31792462135354,
+        "product_id": 4502213427258,
+        "title": "Snow Peas",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Snow Peas",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:08-04:00",
+        "updated_at": "2020-07-04T07:53:08-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097568314,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462135354"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704022074,
+        "product_id": 4502213427258,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Snow Peas"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213492794,
+    "title": "Spinach",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:09-04:00",
+    "handle": "spinach",
+    "updated_at": "2020-07-04T07:53:09-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213492794",
+    "variants": [
+      {
+        "id": 31792462692410,
+        "product_id": 4502213492794,
+        "title": "Spinach",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Spinach",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:09-04:00",
+        "updated_at": "2020-07-04T07:53:09-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097633850,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462692410"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704087610,
+        "product_id": 4502213492794,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Spinach"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502212673594,
+    "title": "Spring Onions",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:02-04:00",
+    "handle": "spring-onions",
+    "updated_at": "2020-07-04T07:53:02-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502212673594",
+    "variants": [
+      {
+        "id": 31792460988474,
+        "product_id": 4502212673594,
+        "title": "Spring Onions",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Spring Onions",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:02-04:00",
+        "updated_at": "2020-07-04T07:53:02-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497096159290,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792460988474"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881703202874,
+        "product_id": 4502212673594,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Spring Onions"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213656634,
+    "title": "Swedes",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:10-04:00",
+    "handle": "swedes",
+    "updated_at": "2020-07-04T07:53:10-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213656634",
+    "variants": [
+      {
+        "id": 31792462856250,
+        "product_id": 4502213656634,
+        "title": "Swedes",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Swedes",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:10-04:00",
+        "updated_at": "2020-07-04T07:53:10-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097797690,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462856250"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704251450,
+        "product_id": 4502213656634,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Swedes"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213591098,
+    "title": "Sweet Corn",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:10-04:00",
+    "handle": "sweet-corn",
+    "updated_at": "2020-07-04T07:53:10-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213591098",
+    "variants": [
+      {
+        "id": 31792462790714,
+        "product_id": 4502213591098,
+        "title": "Sweet Corn",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Sweet Corn",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:10-04:00",
+        "updated_at": "2020-07-04T07:53:10-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097732154,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462790714"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704185914,
+        "product_id": 4502213591098,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Sweet Corn"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213525562,
+    "title": "Tomatoes",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:09-04:00",
+    "handle": "tomatoes",
+    "updated_at": "2020-07-04T07:53:09-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213525562",
+    "variants": [
+      {
+        "id": 31792462725178,
+        "product_id": 4502213525562,
+        "title": "Tomatoes",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Tomatoes",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:09-04:00",
+        "updated_at": "2020-07-04T07:53:09-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097666618,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462725178"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704120378,
+        "product_id": 4502213525562,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Tomatoes"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  },
+  {
+    "id": 4502213558330,
+    "title": "Turnips",
+    "body_html": "",
+    "vendor": "Spring Collective",
+    "product_type": "Box Produce",
+    "created_at": "2020-07-04T07:53:09-04:00",
+    "handle": "turnips",
+    "updated_at": "2020-07-04T07:53:10-04:00",
+    "published_at": null,
+    "template_suffix": null,
+    "published_scope": "web",
+    "tags": "box-produce",
+    "admin_graphql_api_id": "gid://shopify/Product/4502213558330",
+    "variants": [
+      {
+        "id": 31792462757946,
+        "product_id": 4502213558330,
+        "title": "Turnips",
+        "price": "4.50",
+        "sku": null,
+        "position": 1,
+        "inventory_policy": "continue",
+        "compare_at_price": null,
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Turnips",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-07-04T07:53:10-04:00",
+        "updated_at": "2020-07-04T07:53:10-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "inventory_item_id": 33497097699386,
+        "inventory_quantity": 0,
+        "old_inventory_quantity": 0,
+        "requires_shipping": true,
+        "admin_graphql_api_id": "gid://shopify/ProductVariant/31792462757946"
+      }
+    ],
+    "options": [
+      {
+        "id": 5881704153146,
+        "product_id": 4502213558330,
+        "name": "Title",
+        "position": 1,
+        "values": [
+          "Turnips"
+        ]
+      }
+    ],
+    "images": [],
+    "image": null
+  }
+]
+}
