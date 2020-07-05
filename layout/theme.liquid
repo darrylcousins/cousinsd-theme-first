@@ -115,11 +115,6 @@
     rel="stylesheet"
     href="https://unpkg.com/@shopify/polaris@4.26.1/styles.min.css"
   />
-  {% comment %}
-  First try at react in shopify theme - see react-boxes in sections/product-template.liquid
-  {% endcomment %}
-  <script defer type="module" src="{{ "boxes.bundle.js" | asset_url }}"></script>
-  <script defer type="module" src="{{ "vendors.bundle.js" | asset_url }}"></script>
 </head>
 
 <body class="template-{{ request.page_type | handle }}">
@@ -151,4 +146,8 @@
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
 </body>
+  {% comment %}
+  First try at react in shopify theme - see react-boxes in sections/product-template.liquid
+  {% endcomment %}
+  <script defer type="module" src="{{ "boxes.bundle.js" | asset_url }}"></script>
 </html>

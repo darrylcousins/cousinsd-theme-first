@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
 import { Query } from 'react-apollo';
 import { nameSort, numberFormat } from '../../lib';
 import { Get } from '../common/Get'
 import { Subscription } from './Subscription';
 import { ProductList } from './ProductList';
-import { SHOP_ID } from '../../config';
 
 export const BoxListing = ({ options, title, delivered, productList, addOnProductList }) => {
 
@@ -74,9 +72,6 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
         products.push(el);
       };
     });
-    console.log('in useEffect BoxListing');
-    console.log(products);
-    console.log(addons);
     handleProductsChange({
       'products': products,
       'addons': addons,
@@ -153,7 +148,10 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
       const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
       cartCount.innerHTML = count + items.length;
       cartIcon.classList.remove('hide');
-      postToCart({ items }).then(data => console.log(data));
+      postToCart({ items }).then(
+        data => console.log(data);
+        cartIcon.classList.add('hide');
+      );
       e.preventDefault();
       e.stopPropagation();
       return true;

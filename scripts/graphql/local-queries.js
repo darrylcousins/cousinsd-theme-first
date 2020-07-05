@@ -29,3 +29,25 @@ export const GET_CURRENT_SELECTION = gql`
     }
   }
 `;
+
+export const PRODUCT_FRAGMENT = gql`
+  fragment MyProduct on Product {
+    quantity
+    isAddOn
+  }
+`;
+
+export const PRODUCT_FULL_FRAGMENT = gql`
+  fragment MyFullProduct on Product {
+    id
+    title
+    available
+    shopify_gid
+    shopify_id
+    shopify_handle
+    shopify_variant_id
+    shopify_price
+    quantity
+    isAddOn
+  }
+`;

@@ -1,11 +1,19 @@
 import { LABELKEYS } from '../config';
+import { Client } from '../graphql/client'
+import {
+  PRODUCT_FULL_FRAGMENT,
+  PRODUCT_FRAGMENT,
+  GET_INITIAL,
+  GET_CURRENT_SELECTION,
+} from '../graphql/local-queries';
+
 export const nameSort = (a, b) => {
   const prodA = a.title.toUpperCase();
   const prodB = b.title.toUpperCase();
   if (prodA > prodB) return 1;
   if (prodA < prodB) return -1;
   return 0;
-}
+};
 
 export const numberFormat = (amount, currencyCode='NZD') => {
   let amt = parseFloat(amount);
@@ -17,12 +25,30 @@ export const numberFormat = (amount, currencyCode='NZD') => {
         currency: currencyCode
     }).format(amt)
   )
-}
+};
+
+export const updateTotalPrice = () => {
+  const { initial } = Client.readQuery({ 
+    query: GET_INITIAL,
+  });
+  const { current } = Client.readQuery({ 
+    query: GET_CURRENT_SELECTION,
+  });
+
+  var price = initial.total_price;
+  current.addons.map(el => {
+    price += el.quantity * el.shopify_price;
+  });
+  price = numberFormat(price * .01);
+
+  const priceEl = document.querySelector('span[data-regular-price]');
+  priceEl.innerHTML = price;
+};
 
 export const dateToISOString = (date) => {
   date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
   return date.toISOString().slice(0, 10); // try this out later
-}
+};
 
 const arrSum = arr => arr.reduce((a,b) => a + b, 0)
 export const checkLengths = (a, b) => {
@@ -33,28 +59,51 @@ export const makeProductArrays = ({ box, current }) => {
   /* the objects in the arrays are immutable so cannot add attribute
    * hence doing the json thing to denature the objects
    */
-  var ids = [];
   var qtys = current.quantities.reduce(
     (acc, curr) => Object.assign(acc, { [`${curr.handle}`]: curr.quantity }),
     {});
+  var includeIds = [];
   const boxProducts = JSON.parse(JSON.stringify(box.products))
     .filter(item => item.available)
     .map(item => {
-      console.log(item);
-      ids.push(item.shopify_id);
-      var handle = item.shopify_handle;
-      item.isAddOn = false;
-      item.quantity = handle in qtys ? qtys[handle] : 1;
-      return item;
+      var quantity = item.shopify_handle in qtys ? qtys[item.shopify_handle] : 1;
+      if (current.including.indexOf(item.shopify_handle) > -1) {
+        includeIds.push(item.id);
+      }
+      Client.writeFragment({
+        id: item.id,
+        fragment: PRODUCT_FRAGMENT,
+        data: {
+          quantity: quantity,
+          isAddOn: false,
+        },
+      });
+      //return box.products.filter(el => el.id === item.id)[0];
+      return Client.readFragment({
+        id: item.id,
+        fragment: PRODUCT_FULL_FRAGMENT,
+      });
     });
   const availAddOns = JSON.parse(JSON.stringify(box.addOnProducts))
     .filter(item => item.available)
     .map(item => {
-      ids.push(item.shopify_id);
-      var handle = item.shopify_handle;
-      item.isAddOn = true;
-      item.quantity = handle in qtys ? qtys[handle] : 1;
-      return item;
+      var quantity = item.shopify_handle in qtys ? qtys[item.shopify_handle] : 1;
+      if (current.including.indexOf(item.shopify_handle) > -1) {
+        includeIds.push(item.id);
+      }
+      Client.writeFragment({
+        id: item.id,
+        fragment: PRODUCT_FRAGMENT,
+        data: {
+          quantity: quantity,
+          isAddOn: true,
+        },
+      });
+      //return box.addOnProducts.filter(el => el.id === item.id)[0];
+      return Client.readFragment({
+        id: item.id,
+        fragment: PRODUCT_FULL_FRAGMENT,
+      });
     });
 
   const including = (current.including.length)
@@ -67,18 +116,8 @@ export const makeProductArrays = ({ box, current }) => {
   //console.log('box current', JSON.stringify(current, null, 1));
 
   // reduce to remove product arrays from box
-  const boxCopy = {
-    id: box.id,
-    title: box.title,
-    delivered: box.delivered,
-    shopify_gid: box.shopify_gid,
-    shopify_id: box.shopify_id,
-    shopify_handle: box.shopify_handle,
-    shopify_title: box.shopify_title,
-    __typename: "Box"
-  }
   const update = {
-    box: boxCopy,
+    box: box,
     delivered: current.delivered,
     including: including,
     addons: addons,
@@ -86,12 +125,15 @@ export const makeProductArrays = ({ box, current }) => {
     dislikes: dislikes,
   };
   //console.log('box update', JSON.stringify(update, null, 1));
-  return { ids, current: update };
+  return { current: update };
 };
 
 export const makeInitialState = ({ response, path }) => {
 
   const [delivery_date, p_in, p_add, p_dislikes, subscription, addprod] = LABELKEYS;
+  
+  const priceEl = document.querySelector('span[data-regular-price]');
+  const price = parseFloat(priceEl.innerHTML.trim().slice(1)) * 100;
 
   let cart = {
     box_id: 0,
@@ -102,7 +144,7 @@ export const makeInitialState = ({ response, path }) => {
     shopify_title: '',
     shopify_id: 0,
     subscribed: false,
-    total_price: 0,
+    total_price: price,
     quantities: [],
   };
 

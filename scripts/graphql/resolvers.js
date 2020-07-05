@@ -37,11 +37,13 @@ export const typeDefs = gql`
     dislikes: [Product]
   }
 
+`;
+
+/*
   extend type Query {
     getInitial: Initial!
     getCurrent: Current!
   }
-
-`;
+  */
 
 export const resolvers = {};

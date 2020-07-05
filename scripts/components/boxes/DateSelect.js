@@ -40,7 +40,7 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
       handleDateSelect(initialData);
     } else {
       if (boxes.length == 1) {
-        handleDateSelect({
+        const data = Object.assign(initialData, {
           delivered: parseInt(boxes[0].delivered),
           shopify_id: boxes[0].shopify_id,
           box_id: boxes[0].id,
@@ -50,9 +50,8 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
           dislikes: [],
           addons: [],
           quantities: [],
-          subscribed: false,
-          total_price: 0,
         });
+        handleDateSelect(data);
       };
     };
   }, []);
@@ -82,7 +81,7 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
             boxes.map(item => (
               {
                 content: new Date(parseInt(item.delivered)).toDateString(),
-                onAction: () => handleDateSelect({
+                onAction: () => handleDateSelect(Object.assign(initialData, {
                   shopify_title: item.shopify_title,
                   delivered: item.delivered,
                   shopify_id: item.shopify_id,
@@ -92,9 +91,7 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
                   dislikes: [],
                   addons: [],
                   quantities: [],
-                  subscribed: false,
-                  total_price: 0,
-                }),
+                })),
               }
             ))
           }

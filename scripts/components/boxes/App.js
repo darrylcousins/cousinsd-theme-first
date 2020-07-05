@@ -15,14 +15,13 @@ import {
   GET_CURRENT_SELECTION,
 } from '../../graphql/local-queries';
 
-export const App = () => {
+export const App = ({ shopify_id }) => {
 
   /* XXX my idea is that we can use the initial data not only for reloading a
    * cart item but also for subscriptions
    */
 
   const [loaded, setLoaded] = useState(false);
-  const [ids, setIds] = useState([]);
 
   return (
     <Query
@@ -34,23 +33,15 @@ export const App = () => {
 
         const { initial } = data;
 
-        /* get some existing form elements */
-        const button = document.querySelector('button[name="add"]');
-        button.setAttribute('disabled', 'disabled');
-
         if (initial.total_price > 0) {
-          const x = (numberFormat(parseInt(initial.total_price) * 0.01));
-          document.querySelector('span[data-regular-price]').innerHTML = x;
+          const price = (numberFormat(parseInt(initial.total_price) * 0.01));
+          document.querySelector('span[data-regular-price]').innerHTML = price;
         };
 
         const input = {
           ShopId: SHOP_ID,
-          shopify_id: parseInt(
-            document.querySelector('form[action="/cart/add"]')
-              .getAttribute('id').split('_')[2]
-          ),
+          shopify_id: shopify_id,
         };
-        //console.log('in app initial',input,  initial);
 
         return (
           <Query
@@ -91,15 +82,28 @@ export const App = () => {
                     dislikes: initial.dislikes,
                     quantities: initial.quantities,
                   };
-                  var { ids, current } = makeProductArrays({ box, current: start });
+                  var { current } = makeProductArrays({ box, current: start });
                   Client.writeQuery({ 
                     query: GET_CURRENT_SELECTION,
                     data: { current },
                   });
                 };
-                setIds(ids);
                 setLoaded(true);
+                console.log(Client.readQuery({ 
+                  query: GET_INITIAL,
+                }));
+
+                /* get some existing form elements */
+                const button = document.querySelector('button[name="add"]');
+                button.removeAttribute('disabled');
+
               };
+              /*
+              console.log(Client.cache.data.data);
+              console.log('reading from client', Client.readQuery({
+                query: GET_CURRENT_SELECTION,
+              }));
+              */
 
               return (
                 <div style={{
@@ -114,7 +118,6 @@ export const App = () => {
                   onSelect={handleSelect} />
                 <Box
                   loaded={loaded}
-                  ids={ids}
                   />
                 </div>
               );
@@ -125,3 +128,8 @@ export const App = () => {
     </Query>
   );
 };
+/*
+                <Box
+                  loaded={loaded}
+                  />
+                  */

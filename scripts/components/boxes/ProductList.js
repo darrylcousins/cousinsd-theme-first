@@ -6,19 +6,23 @@ import {
   Subheading,
 } from '@shopify/polaris';
 import { Query } from '@apollo/react-components';
+import styled from 'styled-components';
 import { Loader } from '../common/Loader';
 import { Error } from '../common/Error';
+import { Spacer } from '../common/Spacer';
 import { Product } from './Product';
-import { ProductIncluded } from './ProductIncluded';
-import { ProductDislike } from './ProductDislike';
-import { ProductExaddon } from './ProductExaddon';
 import {
   GET_CURRENT_SELECTION,
 } from '../../graphql/local-queries';
 
+const ListWrapper = styled.div` 
+  margin: 1em 0;
+  border-bottom: 1px silver solid;
+  padding-bottom: 1em;
+`;
+
 export const ProductList = ({ type }) => {
   
-  console.log(type);
   let status;
   let title;
 
@@ -49,18 +53,26 @@ export const ProductList = ({ type }) => {
         } else {
           var products = data.current[type];
         };
-        console.log(type, products);
 
-        return (
-          <div style={{ margin: '1em 0 1em 0' }}>
-            <Subheading>{title}</Subheading>
-            <Stack
-              spacing='extraTight'
-            >
-              { products.map(el => <Product key={el.id} product={el} type={type} /> ) }
-            </Stack>
-          </div>
-        );
+        if (products.length) {
+          return (
+            <ListWrapper>
+              <Subheading>{title}</Subheading>
+              <Spacer />
+              <Stack
+                spacing='extraTight'
+              >
+                { products.map(el => <Product key={el.id} product={el} type={type} data={data} /> ) }
+              </Stack>
+            </ListWrapper>
+          );
+        } else {
+          return (
+            <div style={{ marginBottom: '1rem' }}>
+              &nbsp;
+            </div>
+          );
+        }
       }}
     </Query>
   );

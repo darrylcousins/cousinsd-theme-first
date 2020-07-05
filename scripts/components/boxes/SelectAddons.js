@@ -5,14 +5,15 @@ import {
   Popover,
 } from '@shopify/polaris';
 import { Query } from '@apollo/react-components';
+import { Client } from '../../graphql/client'
 import { Loader } from '../common/Loader';
 import { Error } from '../common/Error';
-import { Client } from '../../graphql/client'
-import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
+import { numberFormat, updateTotalPrice } from '../../lib';
+import { GET_CURRENT_SELECTION, GET_INITIAL} from '../../graphql/local-queries';
 
-export const SelectDislikes = () => {
+export const SelectAddons = () => {
   
-  /* XXX products are current.including */
+  /* XXX products are current.exaddons */
   
   /* action select stuff */
   const [selectActive, setSelectActive] = useState(false);
@@ -25,19 +26,21 @@ export const SelectDislikes = () => {
       onClick={toggleSelectActive}
       disclosure
       fullWidth
-    >Select items you'd prefer not to receive</Button>
+    >Select items you'd like to add to the box</Button>
   );
   /* end action select stuff */
 
   const handleAction = ({ product, data }) => {
     toggleSelectActive();
     const current = { ...data.current };
-    current.including = current.including.filter(el => el.id !== product.id);
-    current.dislikes = current.dislikes.concat([product]);
+    current.exaddons = current.exaddons.filter(el => el.id !== product.id);
+    current.addons = current.addons.concat([product]);
     Client.writeQuery({ 
       query: GET_CURRENT_SELECTION,
       data: { current },
     });
+
+    updateTotalPrice();
   };
 
   return (
@@ -47,7 +50,7 @@ export const SelectDislikes = () => {
       {({ loading, error, data }) => {
         if (loading) return <Loader lines={2} />;
         if (error) return <Error message={error.message} />;
-        const products = data.current.including;
+        const products = data.current.exaddons;
 
         return (
           <Popover
@@ -60,7 +63,7 @@ export const SelectDislikes = () => {
               items={
                 products.map(product => (
                   {
-                    content: product.title,
+                    content: `${product.title} ${numberFormat(product.shopify_price*0.01)}`,
                     onAction: () => handleAction({ product, data }),
                   }
                 ))
@@ -72,5 +75,6 @@ export const SelectDislikes = () => {
     </Query>
   );
 }
+
 
 

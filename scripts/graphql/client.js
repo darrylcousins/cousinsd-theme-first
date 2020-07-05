@@ -1,11 +1,26 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { HOST } from '../config';
-import { resolvers, typeDefs } from './resolvers';
+import { typeDefs } from './resolvers';
 import { GET_INITIAL, GET_CURRENT_SELECTION } from './local-queries';
+
+const cache = new InMemoryCache({
+  dataIdFromObject: object => object.id,
+});
+
+const resolvers = {
+  /*
+  Query: {
+    getCurrent: (parent, args, context, info) => {
+      console.log(context, info);
+      return {};
+    }
+  },
+  */
+};
 
 export const Client = new ApolloClient({
   link: new HttpLink({ uri: `${HOST}/local_graphql` }),
-  cache: new InMemoryCache(),
+  cache: cache,
   onError: ({ networkError, graphQLErrors }) => {
     console.log('graphQLError', JSON.stringify(graphQLErrors, null, 2))
     console.log('networkError', JSON.stringify(networkError, null, 2))

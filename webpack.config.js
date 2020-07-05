@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const package = require('./package.json');
 const path = require("path");
 const fs = require("fs");
+const bodyParser = require('body-parser');
 
 /* This file is for webpack-dev-server only */
 const api = (req, res) => {
@@ -42,30 +43,10 @@ module.exports = {
       app.get("/cart.js", function(req, res){
         api(req, res);
       });
-      app.get("/products/*", function(req, res){
-        const fpath = join(__dirname, 'public/products.json');
-        fs.readFile(fpath, {encoding: 'utf-8'}, function(err,data){
-          if (!err) {
-            console.log(data.json());
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            res.write(data);
-            res.end();
-          } else {
-            console.log('error', err);
-          }
-        });
-      });
-      app.get("/admin/api/2020-04/products.json", function(req, res){
-        const fpath = join(__dirname, 'public/products.json');
-        fs.readFile(fpath, {encoding: 'utf-8'}, function(err,data){
-          if (!err) {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            res.write(data);
-            res.end();
-          } else {
-            console.log('error', err);
-          }
-        });
+      app.use(bodyParser.json());
+      app.post("/cart/add.js", bodyParser.json(), function(req, res){
+        console.log(req.body);
+        res.send("POST res sent from webpack dev server")
       });
       /*
       // fallback to index.html if using react router url routing

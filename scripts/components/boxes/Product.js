@@ -1,59 +1,66 @@
 import React from 'react';
-import {
-  Badge,
-  InlineError,
-  Spinner,
-  Icon,
-} from '@shopify/polaris';
-import {
-    CancelSmallMinor
-} from '@shopify/polaris-icons';
+import { gql } from '@apollo/client';
+import { CancelSmallMinor } from '@shopify/polaris-icons';
 import styled from 'styled-components';
-import { numberFormat } from '../../lib';
-import { Get } from '../common/Get'
+import { Client } from '../../graphql/client'
+import { numberFormat, updateTotalPrice } from '../../lib';
 import { ProductWrapper } from './ProductWrapper';
-import { Cancel } from './Cancel';
+import { Loader } from '../common/Loader';
+import { Error } from '../common/Error';
+import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
 
-export const Product = ({ product, type }) => {
+const Cancel = styled.span` 
+  font-size: 1.5em;
+  padding-left: 0.5em;
+`;
 
-  // type one of including, dislikes, addons
-  const ProductItem = ({ product }) => {
+export const Product = ({ product, type, data }) => {
 
-    const price = product.quantity * product.price;
-    const productprice = product.isAddOn ? numberFormat(parseInt(price) * 0.01) : '';
-    const quantity = product.quantity > 1 ? ` (${product.quantity}) ` : ' ';
-    const icon = (product.isAddOn && type === 'including') || type === 'dislikes' ? <Cancel>&#215;</Cancel> : ''; 
+  const price = product.quantity * product.shopify_price;
+  const productprice = product.isAddOn ? numberFormat(parseInt(price) * 0.01) : '';
+  const quantity = product.quantity > 1 ? ` (${product.quantity}) ` : ' ';
+  const removable = (product.isAddOn && type === 'including') || type === 'dislikes'; 
+  const icon = removable ? <Cancel>&#215;</Cancel> : '';
+
+  //if (product.id === '110') console.log(Client.cache.data.data);
+
+  const handleRemoveProduct = ({ product }) => {
+    let to;
+    let from;
+    if (type === 'dislikes') {
+      from = type;
+      to = 'including';
+    } else if (type === 'including') {
+      to = 'exaddons';
+      from = 'addons';
+    };
+
+    const current = { ...data.current };
+    current[from] = current[from].filter(el => el.id !== product.id);
+    const temp = { ...product };
+    temp.quantity = 1;
+    current[to] = current[to].concat([temp]);
+    Client.writeQuery({ 
+      query: GET_CURRENT_SELECTION,
+      data: { current },
+    });
+    updateTotalPrice();
+  };
+
+  if (!removable) {
     return (
-      <ProductWrapper isAddOn={product.isAddOn}>
+      <ProductWrapper isAddOn={product.isAddOn} removable={removable}>
           {product.title}{quantity}{productprice}{icon}
       </ProductWrapper>
     );
-  }
-
-  const url = `/products/${product.shopify_handle}.js`;
-
-  // will need this and price values stored back to current XXX how to do fragments?
-  if (typeof product.variant_id != 'undefined') return <ProductItem product={product} />
-
-  return (
-    <Get
-      url={url}
-    >
-      {({ loading, error, response }) => {
-        if (loading) return <div style={{ height: '20px' }}><Spinner size='small' /></div>;
-        if (error) return <InlineError>{error.message}</InlineError>;
-        //product.price = response.variants[0].price;
-        const productCopy = { ...product };
-        productCopy.variant_id = response.variants[0].id;
-        productCopy.price = response.price;
-
-        const icon = (product.isAddOn && type === 'including') || type === 'dislikes' ? <Cancel>&#215;</Cancel> : ''; 
-
-        return (
-          <ProductItem product={productCopy} />
-        )
-      }}
-    </Get>
-  );
+  } else {
+    return (
+      <div onClick={ (e) => handleRemoveProduct({ product }) }>
+        <ProductWrapper isAddOn={product.isAddOn} removable={removable}>
+            {product.title}{quantity}{productprice}{icon}
+        </ProductWrapper>
+      </div>
+    );
+  };
 }
 
