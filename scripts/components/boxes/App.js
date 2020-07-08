@@ -36,7 +36,7 @@ export const App = ({ shopify_id }) => {
         if (initial.total_price > 0) {
           const price = (numberFormat(parseInt(initial.total_price) * 0.01));
           document.querySelector('span[data-regular-price]').innerHTML = price;
-        };
+        }
 
         const input = {
           ShopId: SHOP_ID,
@@ -49,7 +49,7 @@ export const App = ({ shopify_id }) => {
             variables={{ input }}
             fetchPolicy='cache'
           >
-            {({ loading, error, data, refetch }) => {
+            {({ loading, error, data }) => {
               if (loading) return <Loader lines={4} />;
               if (error) return <Error message={error.message} />;
 
@@ -60,19 +60,16 @@ export const App = ({ shopify_id }) => {
               if (initial.delivered > 0) {
                 var box = boxes.filter(el => parseInt(el.delivered) === initial.delivered);
                 if (box.length > 0) initialCopy.box_id = box[0].id;
-              };
-
-              //console.log('App boxes', boxes);
-              //console.log('App initial', initial);
+              }
 
               const handleSelect = (initial) => {
                 Client.writeQuery({ 
                   query: GET_INITIAL,
                   data: { initial },
                 });
-                var box = boxes.filter(el => el.id === initial.box_id);
-                if (box.length > 0) {
-                  var box = box[0];
+                var temp = boxes.filter(el => el.id === initial.box_id);
+                if (temp.length > 0) {
+                  var box = temp[0];
                   var start = {
                     box,
                     delivered: initial.delivered,
@@ -82,12 +79,12 @@ export const App = ({ shopify_id }) => {
                     dislikes: initial.dislikes,
                     quantities: initial.quantities,
                   };
-                  var { current } = makeProductArrays({ box, current: start });
+                  var { current } = makeProductArrays({ current: start });
                   Client.writeQuery({ 
                     query: GET_CURRENT_SELECTION,
                     data: { current },
                   });
-                };
+                }
                 setLoaded(true);
                 console.log(Client.readQuery({ 
                   query: GET_INITIAL,

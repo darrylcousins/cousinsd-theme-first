@@ -5,7 +5,6 @@ import {
   Popover,
   ActionList,
 } from '@shopify/polaris';
-import { Query } from '@apollo/react-components';
 
 export const DateSelect = ({ initialData, boxes, onSelect }) => {
 
@@ -52,8 +51,8 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
           quantities: [],
         });
         handleDateSelect(data);
-      };
-    };
+      }
+    }
   }, []);
 
   const ShowBanner = () => {
@@ -63,7 +62,7 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
           <Banner status='warning'>Please choose a date for delivery</Banner> 
         </div>
       );
-    };
+    }
     return null;
   };
 

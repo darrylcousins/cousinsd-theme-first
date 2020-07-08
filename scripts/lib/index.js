@@ -55,14 +55,15 @@ export const checkLengths = (a, b) => {
   if (!(arrSum(a) === arrSum(b))) throw 'Product lengths do not match!!!';
 };
 
-export const makeProductArrays = ({ box, current }) => {
+export const makeProductArrays = ({ current }) => {
   /* the objects in the arrays are immutable so cannot add attribute
    * hence doing the json thing to denature the objects
    */
-  var qtys = current.quantities.reduce(
+  const box = current.box;
+  const qtys = current.quantities.reduce(
     (acc, curr) => Object.assign(acc, { [`${curr.handle}`]: curr.quantity }),
     {});
-  var includeIds = [];
+  let includeIds = [];
   const boxProducts = JSON.parse(JSON.stringify(box.products))
     .filter(item => item.available)
     .map(item => {
@@ -149,9 +150,10 @@ export const makeInitialState = ({ response, path }) => {
   };
 
   const toHandle = (title) => title.replace(' ', '-').toLowerCase();
+  console.log(response);
 
   if (response.items) {
-    response.items.forEach((el, idx) => {
+    response.items.forEach((el) => {
       if (el.product_type == 'Veggie Box' && path.indexOf(el.handle)) {
         const total_price = response.total_price; // true total including addons
         const shopify_title = el.title;
@@ -180,9 +182,9 @@ export const makeInitialState = ({ response, path }) => {
           dislikes, 
           subscribed,
         });
-      };
+      }
     });
-    response.items.forEach((el, idx) => {
+    response.items.forEach((el) => {
       if (el.product_type == 'Box Produce') {
         //Small Box delivered on Wed Jul 22 2020
         if (cart.addons.indexOf(el.handle) > -1) {
@@ -192,11 +194,11 @@ export const makeInitialState = ({ response, path }) => {
             const d = new Date(str.slice(len-15)).getTime();
             if (d === cart.delivered) {
               cart.quantities.push({handle: el.handle, quantity: el.quantity });
-            };
-          };
-        };
-      };
-    });
-  };
+            }
+          }
+        }
+      }
+    })
+  }
   return cart;
 };

@@ -23,8 +23,9 @@ export const Box = ({ loaded }) => {
       {({ loading, error, data }) => {
         if (loading) return <Loader lines={2} />;
         if (error) return <Error message={error.message} />;
-        const current = data.current;
-        //console.log('box.js', data);
+
+        console.log(data);
+
         const customiseMarkup = (
           <>
             <Spacer />
@@ -38,13 +39,19 @@ export const Box = ({ loaded }) => {
         return (
           <>
             <ProductList type='including' />
-            <label style={{ width: '100%' }}>
-              <Checkbox
-                checked={customise}
-                onChange={handleChange}
-              />
-              <span>Customise your box</span>
-            </label>
+            <div key='table' style={{ display: 'table' }}>
+              <div key='table-row' style={{ display: 'table-row' }}>
+                <div key='table-cell' style={{ display: 'table-cell' }}>
+                  <Checkbox
+                    checked={customise}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div style={{ display: 'table-cell' }}>
+                  <span>Customise your box</span>
+                </div>
+              </div>
+            </div>
             {customise && customiseMarkup}
           </>
         );

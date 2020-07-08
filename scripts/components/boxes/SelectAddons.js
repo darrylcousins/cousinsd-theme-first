@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   ActionList,
   Button,
@@ -9,7 +9,7 @@ import { Client } from '../../graphql/client'
 import { Loader } from '../common/Loader';
 import { Error } from '../common/Error';
 import { numberFormat, updateTotalPrice } from '../../lib';
-import { GET_CURRENT_SELECTION, GET_INITIAL} from '../../graphql/local-queries';
+import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
 
 export const SelectAddons = () => {
   
@@ -26,7 +26,7 @@ export const SelectAddons = () => {
       onClick={toggleSelectActive}
       disclosure
       fullWidth
-    >Select items you'd like to add to the box</Button>
+    >Select items you&apos;d like to add to the box</Button>
   );
   /* end action select stuff */
 

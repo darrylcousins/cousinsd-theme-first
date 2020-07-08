@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Get = ({ url, children }) => {
 
@@ -22,6 +22,6 @@ export const Get = ({ url, children }) => {
 
   if (typeof children == 'function') {
     return children({ response, error, loading });
-  };
+  }
   return { response, error, loading };
-};
+}

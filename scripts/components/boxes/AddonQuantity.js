@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { gql } from '@apollo/client';
+import React, { useCallback } from 'react';
 import {
   TextField,
 } from '@shopify/polaris';
 import { Client } from '../../graphql/client'
 import { updateTotalPrice } from '../../lib';
-import { GET_CURRENT_SELECTION, GET_INITIAL } from '../../graphql/local-queries';
+import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
 
 export const AddonQuantity = ({ id, qty, data }) => {
 

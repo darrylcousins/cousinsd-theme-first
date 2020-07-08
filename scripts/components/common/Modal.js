@@ -1,18 +1,12 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import {
-  Card,
-  Callout,
-} from '@shopify/polaris';
+import React, { useEffect, useState } from 'react';
 import './modal.css';
 
 export const Modal = ({ visible, content, onClose }) => {
 
   const [isVisible, setIsVisible] = useState(visible);
-  const [text, setText] = useState(content);
 
   useEffect(() => {
     setIsVisible(visible);
-    setText(content);
   }, [])
 
   const closeModal = (e) => {
@@ -40,4 +34,3 @@ export const Modal = ({ visible, content, onClose }) => {
     </div>
   );
 }
-

@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Badge,
   Stack,
-  Spinner,
   Subheading,
 } from '@shopify/polaris';
 import { Query } from '@apollo/react-components';
@@ -23,8 +21,8 @@ const ListWrapper = styled.div`
 
 export const ProductList = ({ type }) => {
   
-  let status;
   let title;
+  let status;
 
   switch(type) {
     case 'including':
@@ -48,11 +46,10 @@ export const ProductList = ({ type }) => {
       {({ loading, error, data }) => {
         if (loading) return <Loader lines={2} />;
         if (error) return <Error message={error.message} />;
-        if (type === 'including') {
-           var products = data.current.including.concat(data.current.addons);
-        } else {
-          var products = data.current[type];
-        };
+
+        const products = type === 'including'
+          ? data.current.including.concat(data.current.addons)
+          : data.current[type]
 
         if (products.length) {
           return (

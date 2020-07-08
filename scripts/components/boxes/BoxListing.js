@@ -1,7 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Query } from 'react-apollo';
-import { nameSort, numberFormat } from '../../lib';
-import { Get } from '../common/Get'
 import { Subscription } from './Subscription';
 import { ProductList } from './ProductList';
 
@@ -30,58 +27,52 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
   useEffect(() => {
     let addons = Array();
     let products = Array();
-    addOnProductList.forEach((el, idx) => {
+    addOnProductList.forEach((el) => {
       let pushed = false;
       if (options.addons) {
         if (options.addons.indexOf(el.title) > -1) {
           products.push(el);
           pushed = true;
-        };
-      };
+        }
+      }
       if (options.including) {
         if (options.including.indexOf(el.title) > -1) {
           products.push(el);
           pushed = true;
-        };
-      };
+        }
+      }
       if (!pushed) {
         addons.push(el);
-      };
+      }
     });
-    productList.forEach((el, idx) => {
+    productList.forEach((el) => {
       let pushed = false;
       if (options.addons) {
         if (options.addons.indexOf(el.title) > -1) {
           products.push(el);
           pushed = true;
-        };
-      };
+        }
+      }
       if (options.including) {
         if (options.including.indexOf(el.title) > -1) {
           products.push(el);
           pushed = true;
-        };
-      };
+        }
+      }
       if (options.removed) {
-        if (options.removed.indexOf(el.title) > -1) {
-          addons.push(el);
-          pushed = true;
-        };
-      };
+        if (options.removed.indexOf(el.title) > -1) { 
+          addons.push(el); pushed = true;
+        }
+      }
       if (!pushed) {
         products.push(el);
-      };
+      }
     });
     handleProductsChange({
       'products': products,
       'addons': addons,
     });
   }, []);
-
-  const [loaded, setLoaded] = useState(false);
-  const [productCount, setproductCount] = useState(productList.length);
-
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   async function postToCart(data) {
     const response = await fetch(`/cart/add.js`,{
@@ -95,9 +86,6 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
 
   /* listen for submit and send data to cart */
   const form = document.querySelector('form[action="/cart/add"]');
-  const button = document.querySelector('button[name="add"]');
-  const priceElement = document.querySelector('span[data-regular-price]');
-  const buttonLoader = button.querySelector('span[data-loader]');
   const cartIcon = document.querySelector('div[data-cart-count-bubble');
   const cartCount = cartIcon.querySelector('span[data-cart-count]');
 
@@ -148,10 +136,11 @@ export const BoxListing = ({ options, title, delivered, productList, addOnProduc
       const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
       cartCount.innerHTML = count + items.length;
       cartIcon.classList.remove('hide');
-      postToCart({ items }).then(
-        data => console.log(data);
-        cartIcon.classList.add('hide');
-      );
+      postToCart({ items })
+        .then(() => {
+          data => console.log(data);
+          cartIcon.classList.add('hide');
+        });
       e.preventDefault();
       e.stopPropagation();
       return true;

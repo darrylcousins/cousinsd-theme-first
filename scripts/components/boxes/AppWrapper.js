@@ -1,10 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import {
-  AppProvider,
-  Banner,
-} from '@shopify/polaris';
+import React, { useEffect } from 'react';
 import { ApolloProvider } from '@apollo/client';
-import { Query } from '@apollo/react-components';
 import { Client } from '../../graphql/client'
 import { makeInitialState } from '../../lib';
 import { Loader } from '../common/Loader';
@@ -30,7 +25,7 @@ export const AppWrapper = () => {
       }
     );
     return response;
-  };
+  }
 
   useEffect(() => {
     // get some page elements
@@ -88,6 +83,7 @@ export const AppWrapper = () => {
       });
       
       postToCart({ items }).then(data => {
+        console.log('returned from post to cart', data);
         cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;
         const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
         cartCount.innerHTML = count + items.length;
@@ -109,7 +105,7 @@ export const AppWrapper = () => {
   return (
     <ApolloProvider client={Client}>
       <Get
-        url='/cart.js'
+        url='/cart-empty.js'
       >
         {({ loading, error, response }) => {
           if (loading) return <Loader lines={4} />;
@@ -124,7 +120,7 @@ export const AppWrapper = () => {
 
           if (response) {
             Client.cache.writeQuery({ query: GET_INITIAL, data: { initial } });
-          };
+          }
 
           return <App shopify_id={shopify_id} />;
         }}

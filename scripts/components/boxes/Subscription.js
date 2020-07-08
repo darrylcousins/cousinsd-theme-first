@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  Stack,
   RadioButton,
 } from '@shopify/polaris';
 import styled from 'styled-components';
-import { SHOP } from '../../config';
 
 export const Subscription = ({ state, handleChange }) => {
 

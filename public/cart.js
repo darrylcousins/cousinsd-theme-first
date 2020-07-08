@@ -2,23 +2,23 @@
   "token": "86527ba54871eaa53a25decff4960a5f",
     "note": null,
     "attributes": {},
-    "original_total_price": 2500,
-    "total_price": 2500,
+    "original_total_price": 3400,
+    "total_price": 3400,
     "total_discount": 0,
     "total_weight": 5000,
-    "item_count": 1,
+    "item_count": 3,
     "items": [
       {
         "id": 31712538263610,
         "properties": {
           "Delivery Date": "Wed Jul 15 2020",
-          "Including": "Agria Potato, Beetroot, Brocolli, Radishes",
-          "Add on items": "Capsicum",
-          "Removed items": "Onions Brown"
+          "Including": "Apples NZ Rose, Baby Kale, Beans Green, Beans Yellow, Beetroot, Brocolli",
+          "Add on items": "Dill",
+          "Removed items": "Agria Potato"
         },
         "quantity": 1,
         "variant_id": 31712538263610,
-        "key": "31712538263610:cd688c49cae3c0cc437078a1a8db9691",
+        "key": "31712538263610:d37e019f4b8bb3936a85540e7153a36c",
         "title": "Small Vege - Seasonal Organic Box",
         "price": 2500,
         "original_price": 2500,
@@ -62,10 +62,62 @@
         ],
         "line_level_discount_allocations": [],
         "line_level_total_discount": 0
+      },
+      {
+        "id": 31792459776058,
+        "properties": {
+          "Add on product to": "Small Vege - Seasonal Organic Box delivered on Wed Jul 15 2020"
+        },
+        "quantity": 2,
+        "variant_id": 31792459776058,
+        "key": "31792459776058:137d7a7d8f52f6542271f01123dcb58e",
+        "title": "Dill - Dill",
+        "price": 450,
+        "original_price": 450,
+        "discounted_price": 450,
+        "line_price": 900,
+        "original_line_price": 900,
+        "total_discount": 0,
+        "discounts": [],
+        "sku": null,
+        "grams": 0,
+        "vendor": "Spring Collective",
+        "taxable": true,
+        "product_id": 4502212116538,
+        "product_has_only_default_variant": false,
+        "gift_card": false,
+        "final_price": 450,
+        "final_line_price": 900,
+        "url": "/products/dill?variant=31792459776058",
+        "featured_image": {
+          "aspect_ratio": null,
+          "alt": null,
+          "height": null,
+          "url": null,
+          "width": null
+        },
+        "image": null,
+        "handle": "dill",
+        "requires_shipping": true,
+        "product_type": "Box Produce",
+        "product_title": "Dill",
+        "product_description": "",
+        "variant_title": "Dill",
+        "variant_options": [
+          "Dill"
+        ],
+        "options_with_values": [
+          {
+            "name": "Title",
+            "value": "Dill"
+          }
+        ],
+        "line_level_discount_allocations": [],
+        "line_level_total_discount": 0
       }
     ],
     "requires_shipping": true,
     "currency": "NZD",
-    "items_subtotal_price": 2500,
+    "items_subtotal_price": 3400,
     "cart_level_discount_applications": []
 }

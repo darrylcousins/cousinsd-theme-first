@@ -20,7 +20,7 @@ const resolvers = {
 
 export const Client = new ApolloClient({
   link: new HttpLink({ uri: `${HOST}/local_graphql` }),
-  cache: cache,
+  cache,
   onError: ({ networkError, graphQLErrors }) => {
     console.log('graphQLError', JSON.stringify(graphQLErrors, null, 2))
     console.log('networkError', JSON.stringify(networkError, null, 2))

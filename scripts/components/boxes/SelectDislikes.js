@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   ActionList,
   Button,
@@ -25,7 +25,7 @@ export const SelectDislikes = () => {
       onClick={toggleSelectActive}
       disclosure
       fullWidth
-    >Select items you'd prefer not to receive</Button>
+    >Select items you&apos;d prefer not to receive</Button>
   );
   /* end action select stuff */
 
@@ -72,5 +72,3 @@ export const SelectDislikes = () => {
     </Query>
   );
 }
-
-

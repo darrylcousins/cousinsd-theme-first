@@ -24,19 +24,4 @@ export const LoadingTextMarkup = ({ lines }) => (
       <Spinner />
     </div>
   </div>
-);
-
-const Bleh = ({ lines }) => (
-  <div style={{ textAlign: 'center' }}>
-    <div style={{ display: 'inline-block' }}>
-      <Card sectioned>
-        <TextContainer>
-          <SkeletonBodyText lines={lines} />
-        </TextContainer>
-      </Card>
-    </div>
-    <div style={{ display: 'inline-block' }}>
-      <Spinner />
-    </div>
-  </div>
-);
+)

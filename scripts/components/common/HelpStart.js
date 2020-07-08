@@ -5,7 +5,7 @@ import {
 export const HelpStart = () => (
   <div>
     <p><strong style={{ color: 'white' }}>Drag and drop products.</strong></p>
-    <p>Take out a product you don't want and we'll
+    <p>Take out a product you don&apos;t want and we&apos;ll
       subsitute with another fresh vegetable.
     </p>
     <p>Other vegetables are available at

@@ -1,12 +1,8 @@
 import React from 'react';
-import { gql } from '@apollo/client';
-import { CancelSmallMinor } from '@shopify/polaris-icons';
 import styled from 'styled-components';
 import { Client } from '../../graphql/client'
 import { numberFormat, updateTotalPrice } from '../../lib';
 import { ProductWrapper } from './ProductWrapper';
-import { Loader } from '../common/Loader';
-import { Error } from '../common/Error';
 import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
 
 const Cancel = styled.span` 
@@ -33,34 +29,41 @@ export const Product = ({ product, type, data }) => {
     } else if (type === 'including') {
       to = 'exaddons';
       from = 'addons';
-    };
+    }
 
     const current = { ...data.current };
     current[from] = current[from].filter(el => el.id !== product.id);
+
     const temp = { ...product };
     temp.quantity = 1;
     current[to] = current[to].concat([temp]);
+
     Client.writeQuery({ 
       query: GET_CURRENT_SELECTION,
       data: { current },
     });
+
     updateTotalPrice();
   };
 
   if (!removable) {
     return (
-      <ProductWrapper isAddOn={product.isAddOn} removable={removable}>
+      <ProductWrapper
+        isAddOn={product.isAddOn}
+        removable={removable}>
           {product.title}{quantity}{productprice}{icon}
       </ProductWrapper>
     );
   } else {
     return (
-      <div onClick={ (e) => handleRemoveProduct({ product }) }>
-        <ProductWrapper isAddOn={product.isAddOn} removable={removable}>
+      <div onClick={ () => handleRemoveProduct({ product }) }>
+        <ProductWrapper
+          isAddOn={product.isAddOn}
+          removable={removable}>
             {product.title}{quantity}{productprice}{icon}
         </ProductWrapper>
       </div>
     );
-  };
+  }
 }
 

@@ -15,7 +15,7 @@ export const ProductWrapper = styled.div`
   padding: 0 1.5rem;
   background-color: ${props => (
     props.isAddOn
-    ? '#80b6ff'
+    ? '#ffd940'
     : '#8cd98c'
     )};
   border: 0.2rem solid white;
