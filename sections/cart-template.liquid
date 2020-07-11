@@ -77,9 +77,11 @@
                       {%- endfor -%}
                     </ul>
 
+                  {%- if item.product.type != 'Box Produce' -%}
                     <p class="cart__remove">
                       <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>{{ 'cart.general.remove' | t }}</a>
                     </p>
+                  {%- endif -%}
                   </div>
                 </div>
               </td>
@@ -180,10 +182,14 @@
               </td>
               <td class="cart__quantity-td text-right small--hide">
                 <div class="cart__qty">
+            {%- if item.product.type != 'Veggie Box' and item.product.type != 'Box Produce' -%}
                   <label for="updates_large_{{ item.key }}" class="cart__qty-label" data-quantity-label-desktop>{{ 'cart.label.quantity' | t }}</label>
                   <input id="updates_large_{{ item.key }}" class="cart__qty-input" type="number"
-                    name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*"
+                    name="updates[]" value="{{ item.quantity }} doh" min="0" pattern="[0-9]*"
                     data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-desktop>
+            {%- else -%}
+                <span id='here'>{{ item.quantity }}</span>
+            {%- endif -%}
                 </div>
                 <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--desktop hide" role="alert" data-cart-quantity-error-message-wrapper>
                   <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>

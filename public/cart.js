@@ -11,10 +11,10 @@
       {
         "id": 31712538263610,
         "properties": {
-          "Delivery Date": "Wed Jul 15 2020",
-          "Including": "Apples NZ Rose, Baby Kale, Beans Green, Beans Yellow, Beetroot, Brocolli",
-          "Add on items": "Dill",
-          "Removed items": "Agria Potato"
+          "Delivery Date": "Wed Jul 18 2020",
+          "Including": "Cauliflower, Cavolonero Kale, Celery, Curly Kale, Leek",
+          "Add on items": "Beetroot",
+          "Removed items": "Carrots"
         },
         "quantity": 1,
         "variant_id": 31712538263610,
@@ -66,12 +66,12 @@
       {
         "id": 31792459776058,
         "properties": {
-          "Add on product to": "Small Vege - Seasonal Organic Box delivered on Wed Jul 15 2020"
+          "Add on product to": "Small Vege - Seasonal Organic Box delivered on Wed Jul 18 2020"
         },
         "quantity": 2,
-        "variant_id": 31792459776058,
+        "variant_id": 31792459677754,
         "key": "31792459776058:137d7a7d8f52f6542271f01123dcb58e",
-        "title": "Dill - Dill",
+        "title": "Beetroot - Beetroot",
         "price": 450,
         "original_price": 450,
         "discounted_price": 450,
@@ -83,12 +83,12 @@
         "grams": 0,
         "vendor": "Spring Collective",
         "taxable": true,
-        "product_id": 4502212116538,
+        "product_id": 4502212051002,
         "product_has_only_default_variant": false,
         "gift_card": false,
         "final_price": 450,
         "final_line_price": 900,
-        "url": "/products/dill?variant=31792459776058",
+        "url": "/products/beetroot?variant=31792459677754",
         "featured_image": {
           "aspect_ratio": null,
           "alt": null,
@@ -97,19 +97,19 @@
           "width": null
         },
         "image": null,
-        "handle": "dill",
+        "handle": "beetroot",
         "requires_shipping": true,
         "product_type": "Box Produce",
-        "product_title": "Dill",
+        "product_title": "Beetroot",
         "product_description": "",
-        "variant_title": "Dill",
+        "variant_title": "Beetroot",
         "variant_options": [
-          "Dill"
+          "Beetroot"
         ],
         "options_with_values": [
           {
             "name": "Title",
-            "value": "Dill"
+            "value": "Beetroot"
           }
         ],
         "line_level_discount_allocations": [],

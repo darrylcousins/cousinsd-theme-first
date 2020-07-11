@@ -10,9 +10,10 @@ export const GET_INITIAL = gql`
       dislikes
       shopify_title
       shopify_id
-      subscribed
+      subscription
       total_price
       quantities
+      is_loaded
     }
   }
 `;
@@ -26,6 +27,7 @@ export const GET_CURRENT_SELECTION = gql`
       addons
       exaddons
       dislikes
+      subscription
     }
   }
 `;

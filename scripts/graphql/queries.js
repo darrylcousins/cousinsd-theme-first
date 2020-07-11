@@ -11,6 +11,7 @@ export const FRAGMENT_PRODUCT_ARRAY = gql`
       shopify_handle
       shopify_variant_id
       shopify_price
+      __typename
     }
 }`;
 
@@ -25,6 +26,7 @@ export const FRAGMENT_ADDONS_ARRAY = gql`
       shopify_handle
       shopify_variant_id
       shopify_price
+      __typename
     }
 }`;
 

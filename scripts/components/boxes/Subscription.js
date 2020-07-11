@@ -1,62 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
-  RadioButton,
+  ActionList,
+  Button,
+  Popover,
 } from '@shopify/polaris';
-import styled from 'styled-components';
 
 export const Subscription = ({ state, handleChange }) => {
 
-  const [value, setValue] = useState(state);
+  const [popoverActive, setPopoverActive] = useState(false);
+  const togglePopoverActive = useCallback(
+    () => setPopoverActive((popoverActive) => !popoverActive),
+    [],
+  );
 
-  useEffect(() => {
-    setValue(state);
-  }, [state]);
+  const [subscription, setSubscription] = useState(state);
+  const onetime = 'One time purchase (default)';
+  const options = ['Weekly', 'Fortnightly', 'Monthly'];
 
-  const SubContainer = styled.div` 
-    display: table;
-    width: 100%;
-    font-size: 1em;
-    color: #4d4d4d;
-    text-transform: none;
-    line-height: 1.6;
-    text-align: left;
-  `;
-  const SubRow = styled.div` 
-    display: table-row;
-  `;
-  const SubCell = styled.div` 
-    display: table-cell;
-  `;
+  const setSubscriptionChange = (value) => {
+    setSubscription(value);
+    const subscription = value === onetime ? '' : value;
+    handleChange(subscription);
+    togglePopoverActive();
+  }
 
   return (
-    <SubContainer>
-      <SubRow>
-        <SubCell>
-          <RadioButton
-            checked={value === 'onetime'}
-            id="onetime"
-            name="subscription"
-            onChange={handleChange}
-          />
-        </SubCell>
-        <SubCell>
-          One-time purchase
-        </SubCell>
-      </SubRow>
-      <SubRow>
-        <SubCell>
-          <RadioButton
-            checked={value === 'subscribe'}
-            id="subscribe"
-            name="subscription"
-            onChange={handleChange}
-          />
-        </SubCell>
-        <SubCell>
-          Subscribe and deliver weekly
-        </SubCell>
-      </SubRow>
-    </SubContainer>
+    <Popover
+      fullWidth
+      fluidContent={true}
+      active={popoverActive}
+      onClose={togglePopoverActive}
+      activator={(
+        <Button
+          fullWidth
+          onClick={togglePopoverActive}
+          disclosure={!popoverActive ? 'down' : 'up'}
+          >
+            { subscription ? subscription : 'Subscription options'}
+        </Button>
+      )}>
+      <ActionList
+        items={ [{ content: onetime, onAction: () => setSubscriptionChange(onetime) }].concat(options.map((el) => {
+          return { 
+            content: el, 
+            onAction: () => setSubscriptionChange(el),
+          }
+        }))}
+      />
+    </Popover>
   );
 }
-

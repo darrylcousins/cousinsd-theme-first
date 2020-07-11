@@ -55,7 +55,7 @@ export const checkLengths = (a, b) => {
   if (!(arrSum(a) === arrSum(b))) throw 'Product lengths do not match!!!';
 };
 
-export const makeProductArrays = ({ current }) => {
+export const makeCurrent = ({ current }) => {
   /* the objects in the arrays are immutable so cannot add attribute
    * hence doing the json thing to denature the objects
    */
@@ -124,6 +124,7 @@ export const makeProductArrays = ({ current }) => {
     addons: addons,
     exaddons: exaddons,
     dislikes: dislikes,
+    subscription: current.subscription,
   };
   //console.log('box update', JSON.stringify(update, null, 1));
   return { current: update };
@@ -131,7 +132,7 @@ export const makeProductArrays = ({ current }) => {
 
 export const makeInitialState = ({ response, path }) => {
 
-  const [delivery_date, p_in, p_add, p_dislikes, subscription, addprod] = LABELKEYS;
+  const [delivery_date, p_in, p_add, p_dislikes, subscribed, addprod] = LABELKEYS;
   
   const priceEl = document.querySelector('span[data-regular-price]');
   const price = parseFloat(priceEl.innerHTML.trim().slice(1)) * 100;
@@ -144,9 +145,10 @@ export const makeInitialState = ({ response, path }) => {
     dislikes: [],
     shopify_title: '',
     shopify_id: 0,
-    subscribed: false,
+    subscription: false,
     total_price: price,
     quantities: [],
+    is_loaded: false,
   };
 
   const toHandle = (title) => title.replace(' ', '-').toLowerCase();
@@ -159,7 +161,7 @@ export const makeInitialState = ({ response, path }) => {
         const shopify_title = el.title;
         const shopify_id = el.product_id;
         const delivered = new Date(el.properties[delivery_date]).getTime();
-        const subscribed = subscription in el.properties ? true : false;
+        const subscription = subscribed in el.properties ? el.properties[subscribed] : '';
         const including = el.properties[p_in].split(',')
           .map(el => el.trim())
           .filter(el => el != '')
@@ -180,20 +182,27 @@ export const makeInitialState = ({ response, path }) => {
           including, 
           addons, 
           dislikes, 
-          subscribed,
+          subscription,
+          is_loaded: true,
         });
       }
     });
     response.items.forEach((el) => {
       if (el.product_type == 'Box Produce') {
         //Small Box delivered on Wed Jul 22 2020
+        // Getting date from the attributes string to verify that this product
+        // belongs to this box
         if (cart.addons.indexOf(el.handle) > -1) {
           if (addprod in el.properties) {
             const str = el.properties[addprod];
             const len = str.length;
             const d = new Date(str.slice(len-15)).getTime();
             if (d === cart.delivered) {
-              cart.quantities.push({handle: el.handle, quantity: el.quantity });
+              cart.quantities.push({
+                handle: el.handle,
+                quantity: el.quantity,
+                variant_id: el.variant_id
+              });
             }
           }
         }

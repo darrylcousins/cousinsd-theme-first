@@ -12,8 +12,45 @@
   </head>
   <body>
     <div class="wrapper">
-      <div id="ClassCount" class="hide" data-cart-count-bubble>
-        <span data-cart-count>  5
+<div class="cart-popup-wrapper cart-popup-wrapper--hidden" role="dialog" aria-modal="true" aria-labelledby="CartPopupHeading" data-cart-popup-wrapper="">
+<div class="cart-popup" data-cart-popup="" tabindex="-1">
+<div class="cart-popup__header">
+<h2 id="CartPopupHeading" class="cart-popup__heading">Just added to your cart</h2>
+<button class="cart-popup__close" aria-label="Close" data-cart-popup-close=""><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 40 40"><path d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path></svg></button>
+</div>
+<div class="cart-popup-item">
+<div class="cart-popup-item__image-wrapper hide" data-cart-popup-image-wrapper="">
+<div class="cart-popup-item__image cart-popup-item__image--placeholder" data-cart-popup-image-placeholder="">
+<div data-placeholder-size=""></div>
+<div class="placeholder-background placeholder-background--animation"></div>
+</div>
+</div>
+<div class="cart-popup-item__description">
+<div>
+<div class="cart-popup-item__title" data-cart-popup-title=""></div>
+<ul class="product-details" aria-label="Product details" data-cart-popup-product-details=""></ul>
+</div>
+<div class="cart-popup-item__quantity">
+<span class="visually-hidden" data-cart-popup-quantity-label=""></span>
+<span aria-hidden="true">Qty:</span>
+<span aria-hidden="true" data-cart-popup-quantity=""></span>
+</div>
+</div>
+</div>
+
+<a href="/cart" class="cart-popup__cta-link btn btn--secondary-accent">
+View cart (<span data-cart-popup-cart-quantity=""></span>)
+</a>
+
+<div class="cart-popup__dismiss">
+<button class="cart-popup__dismiss-button text-link text-link--accent" data-cart-popup-dismiss="">
+Continue shopping
+</button>
+</div>
+</div>
+</div>
+      <div id="ClassCount" class="hide" style="position:absolute;top:0" data-cart-count-bubble>
+        <span data-cart-count>  0
         </span>
       </div>
       <span class="price-item" data-regular-price="">

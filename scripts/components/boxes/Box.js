@@ -24,8 +24,6 @@ export const Box = ({ loaded }) => {
         if (loading) return <Loader lines={2} />;
         if (error) return <Error message={error.message} />;
 
-        console.log(data);
-
         const customiseMarkup = (
           <>
             <Spacer />

@@ -45,7 +45,11 @@ module.exports = {
       });
       app.use(bodyParser.json());
       app.post("/cart/add.js", bodyParser.json(), function(req, res){
-        console.log(req.body);
+        console.log('adding', req.body);
+        res.send("POST res sent from webpack dev server")
+      });
+      app.post("/cart/update.js", bodyParser.json(), function(req, res){
+        console.log('updating', req.body);
         res.send("POST res sent from webpack dev server")
       });
       /*

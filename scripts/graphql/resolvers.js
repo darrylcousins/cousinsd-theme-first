@@ -9,6 +9,7 @@ export const typeDefs = gql`
 
   extend type Qty {
     handle: String!
+    variant_id: BigInt!
     quantity: Int!
   }
 
@@ -22,9 +23,10 @@ export const typeDefs = gql`
     dislikes: [Product]
     shopify_title: String
     shopify_id: Int
-    subscribed: Boolean
+    subscription: String
     total_price: Float
     quantities: [Qty]
+    is_loaded: Boolean
   }
 
   # the data held and updated by the app
@@ -35,6 +37,7 @@ export const typeDefs = gql`
     addons: [Product]
     exaddons: [Product]
     dislikes: [Product]
+    subscription: String
   }
 
 `;

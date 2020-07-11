@@ -49,6 +49,8 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
           dislikes: [],
           addons: [],
           quantities: [],
+          subscription: '',
+          is_loaded: false,
         });
         handleDateSelect(data);
       }
@@ -90,6 +92,8 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
                   dislikes: [],
                   addons: [],
                   quantities: [],
+                  subscription: '',
+                  is_loaded: false,
                 })),
               }
             ))

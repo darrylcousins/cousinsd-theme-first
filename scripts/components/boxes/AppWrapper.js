@@ -16,15 +16,14 @@ export const AppWrapper = () => {
   const shopify_id = parseInt(document.querySelector('form[action="/cart/add"]')
     .getAttribute('id').split('_')[2]);
 
-  async function postToCart(data) {
-    console.log('sending to cart/add.js', data);
-    const response = await fetch(`/cart/add.js`,{
+  function postFetch(url, data) {
+    console.log('sending to ', url,  data);
+    return fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       }
     );
-    return response;
   }
 
   useEffect(() => {
@@ -37,13 +36,18 @@ export const AppWrapper = () => {
     const cartIcon = document.querySelector('div[data-cart-count-bubble');
     const cartCount = cartIcon.querySelector('span[data-cart-count]');
     const cartPopup = document.querySelector('div[data-cart-popup-wrapper');
+    const cartPopupCount = cartPopup.querySelector('span[data-cart-popup-cart-quantity]');
 
     const submitHandler = (e) => {
       buttonLoader.classList.remove('hide');
       var select = form.elements.id;
       var option = select.options[select.selectedIndex]
+
       const { current } = Client.readQuery({
         query: GET_CURRENT_SELECTION,
+      });
+      const { initial } = Client.readQuery({
+        query: GET_INITIAL,
       });
 
       const title = current.box.shopify_title;
@@ -53,7 +57,7 @@ export const AppWrapper = () => {
       current.addons.forEach((el) => {
         items.push({
           quantity: el.quantity,
-          id: el.shopify_variant_id,
+          id: el.shopify_variant_id.toString(),
           properties: {
             'Add on product to': `${title} delivered on ${delivered}`
           }
@@ -71,9 +75,9 @@ export const AppWrapper = () => {
         'Removed items': removed,
       }
       
-      const subscribed = false;
-      if (subscribed == 'subscribe') {
-        properties['Subscription'] = 'Weekly';
+      const subscription = current.subscription;
+      if (subscription !== '') {
+        properties['Subscription'] = subscription;
       }
 
       items.push({
@@ -81,15 +85,40 @@ export const AppWrapper = () => {
         id: option.value,
         properties: properties,
       });
-      
-      postToCart({ items }).then(data => {
+
+      const onFinish = (data) => {
         console.log('returned from post to cart', data);
-        cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;
-        const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
-        cartCount.innerHTML = count + items.length;
         cartIcon.classList.remove('hide');
         cartPopup.classList.remove('cart-popup-wrapper--hidden');
-      });
+        buttonLoader.classList.add('hide');
+      };
+
+      console.log('In add to cart, initial:', initial);
+      // XXX doing an update so delete items first
+      if (initial.is_loaded) {
+        const update = { updates: {} };
+        initial.quantities.forEach(({ handle, quantity, variant_id }) => {
+          update.updates[variant_id] = 0;
+        });
+        update.updates[option.value] = 0;
+        postFetch('/cart/update.js', update)
+          .then(data => {
+            postFetch('/cart/add.js', { items })
+              .then(data => {
+                onFinish(data);
+              });
+          });
+      } else {
+        postFetch('/cart/add.js', { items })
+          .then(data => {
+            cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;
+            const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
+            cartCount.innerHTML = count + items.length;
+            console.log(cartPopupCount);
+            cartPopupCount.innerHTML = count + items.length;
+            onFinish(data);
+          });
+      }
       e.preventDefault();
       e.stopPropagation();
       return false;
@@ -101,11 +130,12 @@ export const AppWrapper = () => {
   }, []);
 
 
+  console.log('App wrapper', Client.cache.data.data);
   /* get current cart data */
   return (
     <ApolloProvider client={Client}>
       <Get
-        url='/cart-empty.js'
+        url='/cart.js'
       >
         {({ loading, error, response }) => {
           if (loading) return <Loader lines={4} />;

@@ -5,6 +5,23 @@ import { GET_INITIAL, GET_CURRENT_SELECTION } from './local-queries';
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object.id,
+  /*
+  cacheRedirects: {
+    Query: {
+      Product: (_, args, { getCacheKey }) => {
+        return getCacheKey({ __typename: 'Product', id: args.id });
+      },
+      Box: (_, args, { getCacheKey }) => {
+        return getCacheKey({ __typename: 'Box', id: args.id });
+      },
+      Initial: (_, args, { getCacheKey }) => {
+        console.log('initial', args);
+        //return args.ids.map(id => getCacheKey({ __typename: 'Product', id: id }));
+        return getCacheKey({ __typename: 'Initial', id: args.id });
+      }
+    },
+  },
+  */
 });
 
 const resolvers = {
@@ -37,9 +54,10 @@ const initial = {
   dislikes: [],
   shopify_title: '',
   shopify_id: 0,
-  subscribed: false,
+  subscription: false,
   total_price: 0,
   quantities: [],
+  is_loaded: false, // flag if loaded from cart or subscription
 };
 
 Client.writeQuery({
@@ -56,6 +74,7 @@ const current = {
   addons: [],
   exaddons: [],
   dislikes: [],
+  subscription: false,
 }
 
 Client.writeQuery({

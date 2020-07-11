@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Query } from '@apollo/react-components';
 import { Client } from '../../graphql/client'
 import { SHOP_ID } from '../../config';
 import { Loader } from '../common/Loader';
 import { Error } from '../common/Error';
 import { DateSelect } from './DateSelect';
+import { Subscription } from './Subscription';
 import { Box } from './Box';
-import { makeProductArrays, numberFormat } from '../../lib';
+import { Spacer } from '../common/Spacer';
+import { makeCurrent, numberFormat } from '../../lib';
 import {
   GET_BOXES,
 } from '../../graphql/queries';
@@ -22,6 +24,23 @@ export const App = ({ shopify_id }) => {
    */
 
   const [loaded, setLoaded] = useState(false);
+
+  /* subscription selector */
+  const handleSubscriptionChange = (subscription) => {
+    const { current } = Client.readQuery({ 
+      query: GET_CURRENT_SELECTION,
+    });
+    const update = { ...current };
+    update.subscription = subscription;
+    Client.writeQuery({ 
+      query: GET_CURRENT_SELECTION,
+      data: { current: update },
+    });
+    console.log('reading selection from client', Client.readQuery({
+      query: GET_CURRENT_SELECTION,
+    }));
+  };
+  /* end subscription selector */
 
   return (
     <Query
@@ -78,28 +97,34 @@ export const App = ({ shopify_id }) => {
                     exaddons: [],
                     dislikes: initial.dislikes,
                     quantities: initial.quantities,
+                    subscription: initial.subscription,
                   };
-                  var { current } = makeProductArrays({ current: start });
+                  var { current } = makeCurrent({ current: start });
                   Client.writeQuery({ 
                     query: GET_CURRENT_SELECTION,
                     data: { current },
                   });
                 }
                 setLoaded(true);
-                console.log(Client.readQuery({ 
+
+                console.log(Client.cache.data.data);
+                console.log('reading initial from client', Client.readQuery({
                   query: GET_INITIAL,
+                }));
+                console.log('reading current from client', Client.readQuery({
+                  query: GET_CURRENT_SELECTION,
                 }));
 
                 /* get some existing form elements */
                 const button = document.querySelector('button[name="add"]');
                 button.removeAttribute('disabled');
+                // loaded existing cart or subscription values
+                if (initial.is_loaded) {
+                  button.querySelector('[data-add-to-cart-text]').innerHTML = 'Update selection';
+                };
 
               };
               /*
-              console.log(Client.cache.data.data);
-              console.log('reading from client', Client.readQuery({
-                query: GET_CURRENT_SELECTION,
-              }));
               */
 
               return (
@@ -116,6 +141,10 @@ export const App = ({ shopify_id }) => {
                 <Box
                   loaded={loaded}
                   />
+                <Spacer />
+                <Subscription
+                  state={initial.subscription}
+                  handleChange={handleSubscriptionChange} />
                 </div>
               );
             }}
