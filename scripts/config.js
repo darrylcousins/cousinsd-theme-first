@@ -10,3 +10,8 @@ export const LABELKEYS = [
   'Subscription',
   'Add on product to'
 ];
+export const SUBSCRIPTIONS = [
+  "Weekly",
+  "Fortnightly",
+  "Monthly",
+];

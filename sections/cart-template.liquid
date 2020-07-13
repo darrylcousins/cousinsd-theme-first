@@ -26,9 +26,15 @@
                   </div>
                   <div>
                     <div class="list-view-item__title">
+                  {%- if item.product.type != 'Box Produce' -%}
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title>
                         {{ item.product.title }}
                       </a>
+                  {%- else -%}
+                      <span class="cart__product-title" data-cart-item-title>
+                        {{ item.product.title }}
+                      </span>
+                  {%- endif -%}
                     </div>
 
                     {%- assign variant_options = 'template ' | split: ' ' -%}

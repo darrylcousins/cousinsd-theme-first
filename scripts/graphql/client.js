@@ -48,7 +48,7 @@ export const Client = new ApolloClient({
 
 const initial = {
   box_id: 0,
-  delivered: null,
+  delivered: '',
   including: [],
   addons: [],
   dislikes: [],

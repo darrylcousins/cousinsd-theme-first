@@ -10,6 +10,7 @@ import {
   GET_INITIAL,
   GET_CURRENT_SELECTION,
 } from '../../graphql/local-queries';
+import { SUBSCRIPTIONS, LABELKEYS } from '../../config';
 
 export const AppWrapper = () => {
 
@@ -36,7 +37,10 @@ export const AppWrapper = () => {
     const cartIcon = document.querySelector('div[data-cart-count-bubble');
     const cartCount = cartIcon.querySelector('span[data-cart-count]');
     const cartPopup = document.querySelector('div[data-cart-popup-wrapper');
-    const cartPopupCount = cartPopup.querySelector('span[data-cart-popup-cart-quantity]');
+    const cartPopupCount= cartPopup.querySelector('span[data-cart-popup-quantity]');
+    const cartPopupCountCart = cartPopup.querySelector('span[data-cart-popup-cart-quantity]');
+    let initialCount = parseInt(cartCount.innerHTML.trim());
+    if (isNaN(initialCount)) initialCount = 0;
 
     const submitHandler = (e) => {
       buttonLoader.classList.remove('hide');
@@ -51,7 +55,7 @@ export const AppWrapper = () => {
       });
 
       const title = current.box.shopify_title;
-      const delivered = new Date(parseInt(current.delivered)).toString().slice(0, 15);
+      const delivered = current.delivered;
       const items = [];
 
       current.addons.forEach((el) => {
@@ -59,7 +63,8 @@ export const AppWrapper = () => {
           quantity: el.quantity,
           id: el.shopify_variant_id.toString(),
           properties: {
-            'Add on product to': `${title} delivered on ${delivered}`
+            'Delivery Date': `${delivered}`,
+            'Add on product to': `${title}`
           }
         });
       });
@@ -76,7 +81,7 @@ export const AppWrapper = () => {
       }
       
       const subscription = current.subscription;
-      if (subscription !== '') {
+      if (SUBSCRIPTIONS.indexOf(subscription) > -1) {
         properties['Subscription'] = subscription;
       }
 
@@ -86,37 +91,40 @@ export const AppWrapper = () => {
         properties: properties,
       });
 
-      const onFinish = (data) => {
+      const onFinish = (data, items) => {
         console.log('returned from post to cart', data);
         cartIcon.classList.remove('hide');
         cartPopup.classList.remove('cart-popup-wrapper--hidden');
         buttonLoader.classList.add('hide');
+        const itemCount = items.map(el => el.quantity).reduce((acc, curr) => acc + curr);
+        cartCount.innerHTML = itemCount;
+        cartPopupCount.innerHTML = itemCount;
+        cartPopupCountCart.innerHTML = itemCount;
       };
 
       console.log('In add to cart, initial:', initial);
       // XXX doing an update so delete items first
+      // XXX will need a closer look when loading subscriptions
       if (initial.is_loaded) {
         const update = { updates: {} };
+        let total_quantity = 1; // one for the main box the rest addons
         initial.quantities.forEach(({ handle, quantity, variant_id }) => {
           update.updates[variant_id] = 0;
+          total_quantity += quantity;
         });
         update.updates[option.value] = 0;
         postFetch('/cart/update.js', update)
           .then(data => {
+            cartCount.innerHTML = initialCount - total_quantity;
             postFetch('/cart/add.js', { items })
               .then(data => {
-                onFinish(data);
+                onFinish(data, items);
               });
           });
       } else {
         postFetch('/cart/add.js', { items })
           .then(data => {
-            cartCount.innerHtml = parseInt(cartCount.innerHtml) + items.length;
-            const count = cartCount.innerHTML.trim() == '' ? 0 : parseInt(cartCount.innerHTML.trim());
-            cartCount.innerHTML = count + items.length;
-            console.log(cartPopupCount);
-            cartPopupCount.innerHTML = count + items.length;
-            onFinish(data);
+            onFinish(data, items);
           });
       }
       e.preventDefault();

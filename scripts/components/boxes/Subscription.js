@@ -4,6 +4,8 @@ import {
   Button,
   Popover,
 } from '@shopify/polaris';
+import { SUBSCRIPTIONS } from '../../config';
+console.log(SUBSCRIPTIONS);
 
 export const Subscription = ({ state, handleChange }) => {
 
@@ -15,12 +17,11 @@ export const Subscription = ({ state, handleChange }) => {
 
   const [subscription, setSubscription] = useState(state);
   const onetime = 'One time purchase (default)';
-  const options = ['Weekly', 'Fortnightly', 'Monthly'];
+  const options = SUBSCRIPTIONS;
 
   const setSubscriptionChange = (value) => {
     setSubscription(value);
-    const subscription = value === onetime ? '' : value;
-    handleChange(subscription);
+    handleChange(value);
     togglePopoverActive();
   }
 

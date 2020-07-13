@@ -24,7 +24,7 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
       onClick={toggleSelectActive}
       disclosure
       fullWidth
-    >{ deliveryDate ? new Date(parseInt(deliveryDate)).toDateString() : 'Choose delivery date' }</Button>
+    >{ deliveryDate ? deliveryDate : 'Choose delivery date' }</Button>
   );
   /* end action select stuff */
 
@@ -35,12 +35,12 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
   };
 
   useEffect(() => {
-    if (initialData.delivered > 0) {
+    if (initialData.delivered.length > 0) {
       handleDateSelect(initialData);
     } else {
       if (boxes.length == 1) {
         const data = Object.assign(initialData, {
-          delivered: parseInt(boxes[0].delivered),
+          delivered: new Date(parseInt(boxes[0].delivered)).toDateString(),
           shopify_id: boxes[0].shopify_id,
           box_id: boxes[0].id,
           shopify_title: boxes[0].shopify_title,
@@ -84,7 +84,7 @@ export const DateSelect = ({ initialData, boxes, onSelect }) => {
                 content: new Date(parseInt(item.delivered)).toDateString(),
                 onAction: () => handleDateSelect(Object.assign(initialData, {
                   shopify_title: item.shopify_title,
-                  delivered: item.delivered,
+                  delivered: new Date(parseInt(item.delivered)).toDateString(),
                   shopify_id: item.shopify_id,
                   box_id: item.id,
                   /* reset because selected different box */

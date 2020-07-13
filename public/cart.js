@@ -66,7 +66,8 @@
       {
         "id": 31792459776058,
         "properties": {
-          "Add on product to": "Small Vege - Seasonal Organic Box delivered on Wed Jul 18 2020"
+          "Add on product to": "Small Vege - Seasonal Organic Box",
+          "Delivery Date": "Wed Jul 18 2020"
         },
         "quantity": 2,
         "variant_id": 31792459677754,

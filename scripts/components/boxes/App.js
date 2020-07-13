@@ -76,8 +76,8 @@ export const App = ({ shopify_id }) => {
               const initialCopy = JSON.parse(JSON.stringify(initial));
 
               // we re running a stored box (cart or subscription)
-              if (initial.delivered > 0) {
-                var box = boxes.filter(el => parseInt(el.delivered) === initial.delivered);
+              if (initialCopy.delivered.length > 0) {
+                var box = boxes.filter(el => new Date(Date.parse((initialCopy.delivered))).getTime() === parseInt(el.delivered));
                 if (box.length > 0) initialCopy.box_id = box[0].id;
               }
 
@@ -107,7 +107,7 @@ export const App = ({ shopify_id }) => {
                 }
                 setLoaded(true);
 
-                console.log(Client.cache.data.data);
+                //console.log(Client.cache.data.data);
                 console.log('reading initial from client', Client.readQuery({
                   query: GET_INITIAL,
                 }));

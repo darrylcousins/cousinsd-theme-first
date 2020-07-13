@@ -130,6 +130,15 @@ export const makeCurrent = ({ current }) => {
   return { current: update };
 };
 
+export const toHandle = (title) => title.replace(' ', '-').toLowerCase();
+
+export const stringToArray = (arr) => {
+  return arr.split(',')
+    .map(el => el.trim())
+    .filter(el => el != '')
+    .map(el => toHandle(el));
+};
+
 export const makeInitialState = ({ response, path }) => {
 
   const [delivery_date, p_in, p_add, p_dislikes, subscribed, addprod] = LABELKEYS;
@@ -139,7 +148,7 @@ export const makeInitialState = ({ response, path }) => {
 
   let cart = {
     box_id: 0,
-    delivered: null,
+    delivered: '',
     including: [],
     addons: [],
     dislikes: [],
@@ -151,7 +160,6 @@ export const makeInitialState = ({ response, path }) => {
     is_loaded: false,
   };
 
-  const toHandle = (title) => title.replace(' ', '-').toLowerCase();
   console.log(response);
 
   if (response.items) {
@@ -160,20 +168,11 @@ export const makeInitialState = ({ response, path }) => {
         const total_price = response.total_price; // true total including addons
         const shopify_title = el.title;
         const shopify_id = el.product_id;
-        const delivered = new Date(el.properties[delivery_date]).getTime();
+        const delivered = el.properties[delivery_date];
         const subscription = subscribed in el.properties ? el.properties[subscribed] : '';
-        const including = el.properties[p_in].split(',')
-          .map(el => el.trim())
-          .filter(el => el != '')
-          .map(el => toHandle(el));
-        const addons = el.properties[p_add].split(',')
-          .map(el => el.trim())
-          .filter(el => el != '')
-          .map(el => toHandle(el));
-        const dislikes = el.properties[p_dislikes].split(',')
-          .map(el => el.trim())
-          .filter(el => el != '')
-          .map(el => toHandle(el));
+        const including = stringToArray(el.properties[p_in]);
+        const addons = stringToArray(el.properties[p_add]);
+        const dislikes = stringToArray(el.properties[p_dislikes]);
         cart = Object.assign(cart, {
           total_price, 
           delivered, 
@@ -189,15 +188,12 @@ export const makeInitialState = ({ response, path }) => {
     });
     response.items.forEach((el) => {
       if (el.product_type == 'Box Produce') {
-        //Small Box delivered on Wed Jul 22 2020
-        // Getting date from the attributes string to verify that this product
-        // belongs to this box
+        // Delivery Date: Wed Jul 22 2020
+        // Add on product to: Box title
         if (cart.addons.indexOf(el.handle) > -1) {
-          if (addprod in el.properties) {
-            const str = el.properties[addprod];
-            const len = str.length;
-            const d = new Date(str.slice(len-15)).getTime();
-            if (d === cart.delivered) {
+          const props = el.properties;
+          if (addprod in props && delivery_date in props) {
+            if (props[delivery_date] === cart.delivered && props[addprod] === cart.shopify_title) {
               cart.quantities.push({
                 handle: el.handle,
                 quantity: el.quantity,
