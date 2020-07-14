@@ -51,6 +51,7 @@ export const GET_BOXES = gql`
       shopify_id
       shopify_handle
       shopify_title
+      shopify_price
       ...productArray
       ...addOnProductArray
     }

@@ -5,7 +5,6 @@ import {
   Popover,
 } from '@shopify/polaris';
 import { SUBSCRIPTIONS } from '../../config';
-console.log(SUBSCRIPTIONS);
 
 export const Subscription = ({ state, handleChange }) => {
 

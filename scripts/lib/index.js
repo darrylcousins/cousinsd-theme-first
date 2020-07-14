@@ -35,7 +35,7 @@ export const updateTotalPrice = () => {
     query: GET_CURRENT_SELECTION,
   });
 
-  var price = initial.total_price;
+  var price = current.box.shopify_price;
   current.addons.map(el => {
     price += el.quantity * el.shopify_price;
   });
@@ -110,7 +110,14 @@ export const makeCurrent = ({ current }) => {
   const including = (current.including.length)
     ? boxProducts.filter(el => current.including.indexOf(el.shopify_handle) > -1)
     : boxProducts;
-  const addons = availAddOns.filter(el => current.addons.indexOf(el.shopify_handle) > -1);
+  // XXX adjust for (qty)
+  console.log(current.addons);
+  const tempAddOns = current.addons.map(el => {
+    const idx = el.indexOf(' ');
+    if (idx > -1) return el.slice(0, idx);
+    return el;
+  });
+  const addons = availAddOns.filter(el => tempAddOns.indexOf(el.shopify_handle) > -1);
   const exaddons = availAddOns.filter(el => current.addons.indexOf(el.shopify_handle) === -1);
   const dislikes = boxProducts.filter(el => current.dislikes.indexOf(el.shopify_handle) > -1);
 
@@ -134,7 +141,15 @@ export const toHandle = (title) => title.replace(' ', '-').toLowerCase();
 
 export const stringToArray = (arr) => {
   return arr.split(',')
-    .map(el => el.trim())
+    .map(el => {
+      const matches = el.matchAll(/\(\d+\)/g);
+      if (matches) {
+        let res;
+        for (res of matches) continue;
+        if (res) return el.slice(0, res.index).trim();
+      };
+      return el.trim();
+    })
     .filter(el => el != '')
     .map(el => toHandle(el));
 };
@@ -172,6 +187,7 @@ export const makeInitialState = ({ response, path }) => {
         const subscription = subscribed in el.properties ? el.properties[subscribed] : '';
         const including = stringToArray(el.properties[p_in]);
         const addons = stringToArray(el.properties[p_add]);
+        console.log('addons in make initial', addons);
         const dislikes = stringToArray(el.properties[p_dislikes]);
         cart = Object.assign(cart, {
           total_price, 

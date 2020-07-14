@@ -30,6 +30,11 @@
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title>
                         {{ item.product.title }}
                       </a>
+                    {%- if item.product.type == 'Veggie Box' -%}
+                      <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title>
+                        &nbsp;&nbsp;(Make changes to the box)
+                      </a>
+                    {%- endif -%}
                   {%- else -%}
                       <span class="cart__product-title" data-cart-item-title>
                         {{ item.product.title }}
@@ -83,10 +88,10 @@
                       {%- endfor -%}
                     </ul>
 
-                  {%- if item.product.type != 'Box Produce' -%}
                     <p class="cart__remove">
                       <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>{{ 'cart.general.remove' | t }}</a>
                     </p>
+                  {%- if item.product.type != 'Box Produce' -%}
                   {%- endif -%}
                   </div>
                 </div>

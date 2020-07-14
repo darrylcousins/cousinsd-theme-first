@@ -10,7 +10,7 @@ import { AddonQuantity } from './AddonQuantity';
 import { Spacer } from '../common/Spacer';
 import { Loader } from '../common/Loader';
 import { Error } from '../common/Error';
-import { updateTotalPrice } from '../../lib';
+import { nameSort, updateTotalPrice } from '../../lib';
 import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
 
 export const AddonText = () => {
@@ -29,6 +29,7 @@ export const AddonText = () => {
     });
     const current = { ...data.current };
     current.addons = current.addons.filter(el => el.id !== product.id);
+    current.addons.sort(nameSort);
     current.exaddons = current.exaddons.concat([product]);
     Client.writeQuery({ 
       query: GET_CURRENT_SELECTION,
@@ -47,9 +48,10 @@ export const AddonText = () => {
         const addons = data.current.addons;
         if (addons.length > 0) {
           return (
-            addons.map(el => (
+            <React.Fragment>
+            <Subheading>Add on products</Subheading>
+            { addons.map(el => (
               <React.Fragment key={el.id}>
-                <Subheading>Add on products</Subheading>
                 <Spacer />
                 <TwoThirdWidth>
                   <TextField
@@ -70,7 +72,8 @@ export const AddonText = () => {
                 </TwoThirdWidth>
                 <Spacer />
               </React.Fragment>
-            ))
+            )) }
+            </React.Fragment>
           );
         } else {
           return null;

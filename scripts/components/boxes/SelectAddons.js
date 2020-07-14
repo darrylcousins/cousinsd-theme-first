@@ -8,7 +8,7 @@ import { Query } from '@apollo/react-components';
 import { Client } from '../../graphql/client'
 import { Loader } from '../common/Loader';
 import { Error } from '../common/Error';
-import { numberFormat, updateTotalPrice } from '../../lib';
+import { nameSort, numberFormat, updateTotalPrice } from '../../lib';
 import { GET_CURRENT_SELECTION } from '../../graphql/local-queries';
 
 export const SelectAddons = () => {
@@ -30,11 +30,15 @@ export const SelectAddons = () => {
   );
   /* end action select stuff */
 
-  const handleAction = ({ product, data }) => {
+  const handleAction = ({ product }) => {
+    const data = Client.readQuery({ 
+      query: GET_CURRENT_SELECTION,
+    });
     toggleSelectActive();
     const current = { ...data.current };
     current.exaddons = current.exaddons.filter(el => el.id !== product.id);
     current.addons = current.addons.concat([product]);
+    current.addons.sort(nameSort);
     Client.writeQuery({ 
       query: GET_CURRENT_SELECTION,
       data: { current },
@@ -64,7 +68,7 @@ export const SelectAddons = () => {
                 products.map(product => (
                   {
                     content: `${product.title} ${numberFormat(product.shopify_price*0.01)}`,
-                    onAction: () => handleAction({ product, data }),
+                    onAction: () => handleAction({ product }),
                   }
                 ))
               }

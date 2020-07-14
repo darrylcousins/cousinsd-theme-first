@@ -33,6 +33,9 @@ export const AppWrapper = () => {
     form.removeAttribute('action');
     const button = document.querySelector('button[name="add"]');
     button.removeAttribute('type');
+    button.setAttribute('aria-disabled', true);
+    button.style.opacity = '1';
+    button.style.cursor = 'pointer';
     const buttonLoader = button.querySelector('span[data-loader]');
     const cartIcon = document.querySelector('div[data-cart-count-bubble');
     const cartCount = cartIcon.querySelector('span[data-cart-count]');
@@ -69,7 +72,10 @@ export const AppWrapper = () => {
         });
       });
 
-      const addons = current.addons.map(el => el.title).join(', ');
+      const addons = current.addons.map(el => {
+        if (el.quantity > 1) return `${el.title} (${el.quantity})`;
+        return el.title;
+      }).join(', ');
       const removed = current.dislikes.map(el => el.title).join(', ');
       const including = current.including.map(el => el.title).join(', ');
 
@@ -100,9 +106,28 @@ export const AppWrapper = () => {
         cartCount.innerHTML = itemCount;
         cartPopupCount.innerHTML = itemCount;
         cartPopupCountCart.innerHTML = itemCount;
+        
+        // rest initial values to the current
+        const tempInitial = { ...initial };
+        tempInitial.is_loaded = true;
+        tempInitial.addons = current.addons.map(el => el.shopify_handle);
+        tempInitial.dislikes = current.dislikes.map(el => el.shopify_handle);
+        tempInitial.including = current.including.map(el => el.shopify_handle);
+        tempInitial.quantities = current.addons.map(el => {
+          return {
+            handle: el.shopify_handle,
+            quantity: el.quantity,
+            variant_id: el.shopify_variant_id
+          };
+        });
+        Client.writeQuery({ 
+          query: GET_INITIAL,
+          data: { initial: tempInitial },
+        });
+        button.querySelector('[data-add-to-cart-text]').innerHTML = 'Update selection';
       };
+      console.log('in action', initial);
 
-      console.log('In add to cart, initial:', initial);
       // XXX doing an update so delete items first
       // XXX will need a closer look when loading subscriptions
       if (initial.is_loaded) {
@@ -115,6 +140,7 @@ export const AppWrapper = () => {
         update.updates[option.value] = 0;
         postFetch('/cart/update.js', update)
           .then(data => {
+            console.log('returned from cart/update', data);
             cartCount.innerHTML = initialCount - total_quantity;
             postFetch('/cart/add.js', { items })
               .then(data => {
@@ -138,7 +164,7 @@ export const AppWrapper = () => {
   }, []);
 
 
-  console.log('App wrapper', Client.cache.data.data);
+  //console.log('App wrapper', Client.cache.data.data);
   /* get current cart data */
   return (
     <ApolloProvider client={Client}>

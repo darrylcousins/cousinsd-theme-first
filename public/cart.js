@@ -13,7 +13,7 @@
         "properties": {
           "Delivery Date": "Wed Jul 18 2020",
           "Including": "Cauliflower, Cavolonero Kale, Celery, Curly Kale, Leek",
-          "Add on items": "Beetroot",
+          "Add on items": "Beetroot (2)",
           "Removed items": "Carrots"
         },
         "quantity": 1,
