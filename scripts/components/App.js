@@ -1,21 +1,21 @@
 import React, { useCallback, useState } from 'react';
 import { Query } from '@apollo/react-components';
-import { Client } from '../../graphql/client'
-import { SHOP_ID } from '../../config';
-import { Loader } from '../common/Loader';
-import { Error } from '../common/Error';
-import { DateSelect } from './DateSelect';
-import { Subscription } from './Subscription';
-import { Box } from './Box';
-import { Spacer } from '../common/Spacer';
-import { makeCurrent, numberFormat } from '../../lib';
+import { Client } from './../graphql/client'
+import { SHOP_ID } from './../config';
+import { Loader } from './common/Loader';
+import { Error } from './common/Error';
+import { DateSelect } from './boxes/DateSelect';
+import { Subscription } from './boxes/Subscription';
+import { Box } from './boxes/Box';
+import { Spacer } from './common/Spacer';
+import { makeCurrent, numberFormat } from './../lib';
 import {
   GET_BOXES,
-} from '../../graphql/queries';
+} from './../graphql/queries';
 import {
   GET_INITIAL,
   GET_CURRENT_SELECTION,
-} from '../../graphql/local-queries';
+} from './../graphql/local-queries';
 
 export const App = ({ shopify_id }) => {
 

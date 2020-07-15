@@ -4,7 +4,7 @@ import { AppProvider } from '@shopify/polaris';
 import enTranslations from '@shopify/polaris/locales/en.json';
 import '@shopify/polaris/styles.css';
 
-import { AppWrapper } from "./components/boxes/AppWrapper"
+import { AppWrapper } from "./components/AppWrapper"
 
 function WrappedApp() {
   return (
